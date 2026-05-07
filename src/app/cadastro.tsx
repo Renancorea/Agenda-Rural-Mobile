@@ -1,82 +1,114 @@
-/*import { View, Text } from "react-native"
+import { TouchableOpacity, Button, View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native"
 
-export default function Cadastro(){
-    return (
-        <View>
-            <Text> Cadastre-se </Text>
-        </View>
-    )
-}*/
-
-import { View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform } from "react-native"
-
-export default function Cadastro(){
-  return(
-
-    <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.select({ios:"padding", android:"height"})}>
-    <ScrollView 
-        contentContainerStyle={{ flexGrow: 1}} /**/
-        keyboardShouldPersistTaps="handled" /**/
-        showsVerticalScrollIndicator={false} /*Tirar a barra de rolagem*/
-    >
-          <View style={styles.container}>
-
-            <Image 
-             source={require("../assets/logo.png")}
-                style={styles.illustration_logo}/>
-
-            <Text style={styles.title}> Agenda Rural </Text>
+export default function cadastro(){
+    return(
+        
+        <View style={styles.body}> 
+            <TouchableOpacity>
+                <Image source={require("../app/assets/return.png")}style={styles.seta}/>
+            </TouchableOpacity>
+                <Text style={styles.title}>Crie sua conta!</Text>
 
             <View style={styles.form}>
-                <input placeholder="E-mail" />
-                <input placeholder="Senha "/>
-               
-            </View> 
 
-            <Text style={styles.footerText}>Não tem uma conta? {" "}
-                
-            </Text>
+                <View style={styles.inputBox}>
+                    <Text style={styles.label}>Nome</Text>
+                    <TextInput style={styles.input}></TextInput>
+                </View>
 
+                <View style={styles.inputBox}>
+                    <Text style={styles.label}>Email</Text>
+                    <TextInput style={styles.input}></TextInput>
+                </View>
+
+                <View style={styles.inputBox}>
+                    <Text style={styles.label}>Senha</Text>
+                    <TextInput style={styles.input}></TextInput>
+                    <Text style={styles.forgotpass}>Minimo 8 caracteres</Text>
+                </View>
+
+                <View style={styles.inputBox}>
+                    <Text style={styles.label}>Confirmar senha</Text>
+                    <TextInput style={styles.input}></TextInput>
+                </View>
+
+            </View>
+
+            <TouchableOpacity style={styles.loginButton}>
+                <Text style={styles.buttonText}>Entrar</Text>
+            </TouchableOpacity>
         </View>
-    </ScrollView>
-    </KeyboardAvoidingView>
+        
     )
 }
-const styles = StyleSheet.create({
 
-    container: {
+const styles = StyleSheet.create({
+    body: {
         flex: 1,
-        backgroundColor: '#EFF5D2',
-        padding: 32,
+        backgroundColor: "#EFF5D2",
+        padding: 32, 
+        alignItems: "flex-start",
+        width:"100%"
     },
 
-    illustration_logo: {
-        width: "100%",
-        height: 330,
+     seta: {
+        width: 25, 
+        height: 25,
         resizeMode: "contain",
-        marginTop: 62,
+        marginTop: 40,
     },
 
     title: {
-        fontSize: 32,
-        fontWeight: 900,
-        color: '#4F2D1A'
+
+        textAlign:"center",
+        width:"100%",
+        marginTop: 15,
+        fontSize: 42,
+        fontWeight: "bold",
+        color: "#8FA31E",  
     },
 
-    form: {
-        marginTop: 24,
-        gap: 12,
+    inputBox:{
+        width:"100%",
+        marginTop: 10,
     },
 
-    footerText: {
-        textAlign: 'center',
-        marginTop: 24,
-        color: "#0505bb",
+    label:{
+        fontSize: 20,
+        color:'#4F2D1A',
+    },
+    
+    input:{
+        borderWidth: 1,
+        borderRadius: 5,
+        width:"100%"
     },
 
-    footerLink: {
-        color: '#e93650',
-        fontWeight: 700,
-
+    forgotpass:{
+        marginBottom: 10,
+        fontSize:16,
+        color:'#8FA31E',
     },
+
+    form:{
+        width:"100%",
+        marginTop: 30,
+    },
+
+    loginButton:{
+        marginTop: "50%",
+        height: 50,
+        width: "100%",
+        alignItems:"center",
+        backgroundColor: "#8FA31E",
+        borderRadius: 15,
+    },
+
+    buttonText:{
+        fontSize: 30,
+        color:'#EFF5D2',
+        margin:'auto',
+        fontWeight: "bold",
+    },
+
 })
