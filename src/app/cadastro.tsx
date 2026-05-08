@@ -1,13 +1,15 @@
-import { TouchableOpacity, Button, View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native"
+import { TouchableOpacity, Button, View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
+import { Link } from "expo-router"
 
 export default function cadastro(){
-    return(
+    return( 
         
         <View style={styles.body}> 
             <TouchableOpacity>
-                <Image source={require("../assets/return.png")}style={styles.seta}/>
+                <Image source={require("../assets/return.png")}style={styles.seta} />
             </TouchableOpacity>
-                <Text style={styles.title}>Crie sua conta!</Text>
+
+                <Text style={styles.title}> Crie sua conta!</Text>
 
             <View style={styles.form}>
 
@@ -33,12 +35,14 @@ export default function cadastro(){
                 </View>
 
             </View>
+            
+             <Link style={styles.navButton} href="/confirmacao">
+             <Text style={styles.buttonText}>Criar</Text>
+             </Link>
+            
 
-            <TouchableOpacity style={styles.loginButton}>
-                <Text style={styles.buttonText}>Entrar</Text>
-            </TouchableOpacity>
+
         </View>
-        
     )
 }
 
@@ -59,7 +63,6 @@ const styles = StyleSheet.create({
     },
 
     title: {
-
         textAlign:"center",
         width:"100%",
         marginTop: 15,
@@ -67,7 +70,15 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#8FA31E",  
     },
-
+    navButton:{
+        marginTop: "50%",
+        width: "100%",
+        height: 50,
+        verticalAlign:"middle",
+        backgroundColor: "#8FA31E",
+        borderRadius: 15,
+        color: "#000000"
+    },
     inputBox:{
         width:"100%",
         marginTop: 10,
@@ -85,7 +96,6 @@ const styles = StyleSheet.create({
     },
 
     forgotpass:{
-        marginBottom: 10,
         fontSize:16,
         color:'#8FA31E',
     },
@@ -108,6 +118,8 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color:'#EFF5D2',
         margin:'auto',
+        height:"100%",
+        textAlign: 'center',
         fontWeight: "bold",
     },
 

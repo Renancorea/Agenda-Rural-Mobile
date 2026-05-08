@@ -1,5 +1,5 @@
 import { Button, TextInput, View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native"
-
+import { Link } from "expo-router"
 
 /*não ser visivel a senha (editable={false}) 
   a bolinha na senha (secureTextEndry)
@@ -7,14 +7,15 @@ import { Button, TextInput, View, StyleSheet, Image, Text, ScrollView, KeyboardA
 
 export default function Tela_Inicial() {
     return (
-
+ 
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.select({ ios: "padding", android: "height" })}>
             <ScrollView /*Para rolar a tela*/
                 contentContainerStyle={{ flexGrow: 1 }}
                 keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/
-            >
+                showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
+
                 <View style={styles.container}>
+
                     <View style={styles.header}>
                         <Image source={require("../assets/logo.png")} style={styles.illustration_logo} />
                         <Text style={styles.title}>Bem vindo ao Agenda Rural</Text>
@@ -22,22 +23,31 @@ export default function Tela_Inicial() {
 
                     <View style={styles.form}>
                         <Text style={styles.subtitle}>Acesse sua conta com E-mail e Senha</Text>
-                        <TextInput style={styles.input} placeholder="E-mail" />
-                        <TextInput style={styles.input} secureTextEntry={true} placeholder="Senha" />
-                        <Text style={styles.forgotpass}> Esqueceu a senha?</Text>
-                    </View>
+
+                                    <View style={styles.inputBox}>                                        
+                                        <TextInput placeholder="E-mail" style={styles.input}></TextInput>
+                                    </View>
+                    
+                                    <View style={styles.inputBox}>
+                                        <TextInput placeholder="Senha" style={styles.input}></TextInput>
+                                        <Text style={styles.forgotpass}>Esqueceu a senha</Text>
+                                    </View>
+                    </View> 
+
+
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity style={styles.button}>
                             <Text style={styles.buttonText}>Entrar</Text>
                         </TouchableOpacity>
-                         <Text style={styles.singin}> Não tem uma conta? Cadastre-se</Text>
+
+                         <Text style={styles.singin}> <Link href="/cadastro"> Não tem uma conta? Cadastre-se </Link></Text>
                     </View>
 
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
     )
-}
+};
 const styles = StyleSheet.create({
 
     container: {
@@ -45,12 +55,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#EFF5D2',
         padding: 32,
     },
+
     header: {
         textAlign: "center",
         alignItems: "center",
         backgroundColor: '#EFF5D2',
         padding: 0,
     },
+
     input: {
         height: 45,
         borderColor: '#000000',
@@ -59,30 +71,36 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         fontSize: 20,
         paddingHorizontal: 8,
-
     },
+
     buttonContainer: {
         marginTop: 24,
     },
+      inputBox:{
+        width:"100%",
+        marginTop: 10,
+    },
+
     button: {
+        height: 50,
         backgroundColor: '#8FA31E',
-        paddingVertical: 12,
-        paddingHorizontal: 24,
         borderRadius: 4,
         alignItems: 'center',
         justifyContent: 'center',
-        width: "100%",
-      
+        width: "100%"
     },
+
     buttonText: {
-        color: '#FFFFFF',
-        fontSize: 16,
-        fontWeight: '600',
+        fontSize: 24,
+        color:'#EFF5D2',
+        margin:'auto',
+        fontWeight: "bold",
     },
+
     illustration_logo: {
         width: "100%",
         height: 200,
-        resizeMode: "contain", /*ajustar no tamanho sugerido*/
+        resizeMode: "contain", 
         marginTop: "10%",
     },
 
@@ -100,10 +118,13 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         color: "#8FA31E",
     },
+
      forgotpass: {
-        textAlign: 'left',
-        color: "#8FA31E",
+        marginBottom: 10,
+        fontSize:15,
+        color:'#8FA31E',
     },
+
     subtitle: {
         width: "100%",
         fontSize: 16,
@@ -115,10 +136,9 @@ const styles = StyleSheet.create({
         gap: 12,
     },
 
-
     footerLink: {
         color: '#e93650',
         fontWeight: 700,
-
     },
-})
+
+});
