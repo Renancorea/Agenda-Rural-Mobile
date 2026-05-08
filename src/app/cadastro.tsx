@@ -5,7 +5,7 @@ export default function cadastro(){
         
         <View style={styles.body}> 
             <TouchableOpacity>
-                <Image source={require("../app/assets/return.png")}style={styles.seta}/>
+                <Image source={require("../assets/return.png")}style={styles.seta}/>
             </TouchableOpacity>
                 <Text style={styles.title}>Crie sua conta!</Text>
 
