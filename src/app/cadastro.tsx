@@ -5,10 +5,11 @@ export default function cadastro(){
     return( 
         
         <View style={styles.body}> 
-            <TouchableOpacity>
-                <Image source={require("../assets/return.png")}style={styles.seta} />
-            </TouchableOpacity>
-
+           
+            <Link style={styles.navImagen} href="/">
+                <Image source={require("../assets/return.png")}style={styles.seta}/>
+            </Link>
+               
                 <Text style={styles.title}> Crie sua conta!</Text>
 
             <View style={styles.form}>
@@ -36,11 +37,10 @@ export default function cadastro(){
 
             </View>
             
+             
              <Link style={styles.navButton} href="/confirmacao">
-             <Text style={styles.buttonText}>Criar</Text>
+             <Text style={styles.buttonText}>Confirmar</Text>
              </Link>
-            
-
 
         </View>
     )
@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
         width: 25, 
         height: 25,
         resizeMode: "contain",
-        marginTop: 40,
     },
 
     title: {
@@ -70,6 +69,11 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#8FA31E",  
     },
+
+    navImagen:{
+        marginTop: 20,
+    },
+
     navButton:{
         marginTop: "50%",
         width: "100%",
@@ -79,6 +83,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         color: "#000000"
     },
+
     inputBox:{
         width:"100%",
         marginTop: 10,

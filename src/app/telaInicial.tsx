@@ -30,7 +30,7 @@ export default function Tela_Inicial() {
                     
                                     <View style={styles.inputBox}>
                                         <TextInput placeholder="Senha" style={styles.input}></TextInput>
-                                        <Text style={styles.forgotpass}>Esqueceu a senha</Text>
+                                        <Text style={styles.forgotpass}> <Link href="/esqueceuSenha"> Esqueceu a senha? </Link></Text>
                                     </View>
                     </View> 
 

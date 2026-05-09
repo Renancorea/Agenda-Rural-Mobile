@@ -1,29 +1,29 @@
 import { TouchableOpacity, Button, View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
 import { Link } from "expo-router"
 
-export default function confirmacao(){
+export default function esqueceuSenha(){
     return(
         <View style={styles.body}>
-
-            <Link style={styles.navImagen} href="/cadastro">
+        
+            <Link style={styles.navImagen} href="/">
                 <Image source={require("../assets/return.png")}style={styles.seta}/>
             </Link>
+        
+            <Text style={styles.title}>Esqueceu a senha?</Text>
 
-            <Text style={styles.title}>Confirmação!</Text>
+            <Text style={styles.text}>Digite seu Email para recuperar sua senha:</Text>
 
-            <Text style={styles.text}>Para confirmarmos a criação da sua conta enviamos o código de verificação para o e-mail que você cadastrou, insira-o abaixo:</Text>
+            <View style={styles.inputBox}>                                        
+                <TextInput placeholder="E-mail" style={styles.input}></TextInput>
+            </View>
 
-             <Link style={styles.navButton} href="/confirmacao">
-                         <Text style={styles.buttonText}>Criar</Text>
-                         </Link>
-            
         </View>
-
     )
+
 }
 
 const styles = StyleSheet.create({
-    body: {
+    body:{
         flex: 1,
         backgroundColor: "#EFF5D2",
         padding: 32, 
@@ -51,33 +51,27 @@ const styles = StyleSheet.create({
         color: "#8FA31E",  
     },
 
-     text:{
+    text:{
         width: "100%",
         fontSize: 19,
         textAlign: "center",
         marginTop: 15,
     },
 
-    navButton:{
-        marginTop: "100%",
-        width: "100%",
-        height: 50,
-        verticalAlign:"middle",
-        backgroundColor: "#8FA31E",
-        borderRadius: 15,
-        color: "#000000"
+    input: {
+        height: 45,
+        borderColor: '#000000',
+        borderWidth: 1,
+        marginBottom: 12,
+        borderRadius: 4,
+        fontSize: 20,
+        paddingHorizontal: 8,
     },
 
-    buttonText:{
-        fontSize: 30,
-        color:'#EFF5D2',
-        margin:'auto',
-        height:"100%",
-        textAlign: 'center',
-        fontWeight: "bold",
-    }
-
+     inputBox:{
+        width:"100%",
+        marginTop: 30,
+    },
 })
-    
-        
-       
+
+
