@@ -10,13 +10,19 @@ export default function confirmacao(){
             </Link>
 
             <Text style={styles.title}>Confirmação!</Text>
-
             <Text style={styles.text}>Para confirmarmos a criação da sua conta enviamos o código de verificação para o e-mail que você cadastrou, insira-o abaixo:</Text>
 
-             <Link style={styles.navButton} href="/confirmacao">
-                         <Text style={styles.buttonText}>Criar</Text>
-                         </Link>
-            
+            <View style={styles.inputBox}>
+                <View><TextInput style={styles.input}></TextInput></View>
+                <View><TextInput style={styles.input}></TextInput></View>
+                <View><TextInput style={styles.input}></TextInput></View>
+                <View><TextInput style={styles.input}></TextInput></View>
+            </View>
+                   
+            <Link style={styles.navButton} href="/confirmacao">
+                <Text style={styles.buttonText}>Criar</Text>
+            </Link> 
+              
         </View>
 
     )
@@ -56,6 +62,20 @@ const styles = StyleSheet.create({
         fontSize: 19,
         textAlign: "center",
         marginTop: 15,
+    },
+
+    inputBox:{
+        marginTop: 30,
+        justifyContent: "center",       
+        flexDirection: "row",
+        gap: 10,
+    },
+
+     input:{
+        borderWidth: 1,
+        borderRadius: 5,
+        width: 70,
+        height: 70
     },
 
     navButton:{

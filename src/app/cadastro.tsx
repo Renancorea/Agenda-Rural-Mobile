@@ -36,11 +36,10 @@ export default function cadastro(){
                 </View>
 
             </View>
-            
-             
-             <Link style={styles.navButton} href="/confirmacao">
-             <Text style={styles.buttonText}>Confirmar</Text>
-             </Link>
+                
+            <Link style={styles.navButton} href="/confirmacao">
+                <Text style={styles.buttonText}>Confirmar</Text>
+            </Link>
 
         </View>
     )

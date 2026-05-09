@@ -10,12 +10,15 @@ export default function esqueceuSenha(){
             </Link>
         
             <Text style={styles.title}>Esqueceu a senha?</Text>
-
             <Text style={styles.text}>Digite seu Email para recuperar sua senha:</Text>
 
             <View style={styles.inputBox}>                                        
                 <TextInput placeholder="E-mail" style={styles.input}></TextInput>
             </View>
+
+            <Link style={styles.navButton} href="/ES_envioCodigo">
+                <Text style={styles.buttonText}>Seguir</Text>
+            </Link>
 
         </View>
     )
@@ -68,9 +71,28 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
     },
 
-     inputBox:{
+    inputBox:{
         width:"100%",
         marginTop: 30,
+    },
+
+    navButton:{
+        marginTop: "100%",
+        width: "100%",
+        height: 50,
+        verticalAlign:"middle",
+        backgroundColor: "#8FA31E",
+        borderRadius: 15,
+        color: "#000000"
+    },
+
+    buttonText:{
+        fontSize: 30,
+        color:'#EFF5D2',
+        margin:'auto',
+        height:"100%",
+        textAlign: 'center',
+        fontWeight: "bold",
     },
 })
 
