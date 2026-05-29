@@ -5,7 +5,7 @@ import { Link } from "expo-router"
   a bolinha na senha (secureTextEndry)
   (keyboardType="") seria o tipo de teclado*/
 
-export default function Tela_Inicial() {
+export default function telaInicial() {
     return (
  
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.select({ ios: "padding", android: "height" })}>

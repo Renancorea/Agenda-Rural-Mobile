@@ -17,7 +17,7 @@ export default function ES_envioCodigo(){
     )
 }
 
-const styles= StyleSheet.create({
+const styles = StyleSheet.create({
     body:{
         flex: 1,
         backgroundColor: "#EFF5D2",
