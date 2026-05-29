@@ -27,7 +27,7 @@ export default function telaInicial() {
                                     <View style={styles.inputBox}>                                        
                                         <TextInput placeholder="E-mail" style={styles.input}></TextInput>
                                     </View>
-                    
+                                    
                                     <View style={styles.inputBox}>
                                         <TextInput placeholder="Senha" style={styles.input}></TextInput>
                                         <Text style={styles.forgotpass}> <Link href="/esqueceuSenha"> Esqueceu a senha? </Link></Text>
