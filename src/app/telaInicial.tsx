@@ -73,14 +73,15 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
     },
 
-    buttonContainer: {
-        marginTop: 24,
-    },
-      inputBox:{
+    inputBox:{
         width:"100%",
         marginTop: 10,
     },
 
+    buttonContainer: {
+        marginTop: 24,
+    },  
+    
     button: {
         height: 50,
         backgroundColor: '#8FA31E',

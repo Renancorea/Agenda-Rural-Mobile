@@ -3,6 +3,13 @@ import { Link } from "expo-router"
 
 export default function confirmacao(){
     return(
+
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.select({ ios: "padding", android: "height" })}>
+        <ScrollView /*Para rolar a tela*/
+            contentContainerStyle={{ flexGrow: 1 }}
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}>
+
         <View style={styles.body}>
 
             <Link style={styles.navImagen} href="/cadastro">
@@ -18,12 +25,17 @@ export default function confirmacao(){
                 <View><TextInput style={styles.input}></TextInput></View>
                 <View><TextInput style={styles.input}></TextInput></View>
             </View>
-                   
+
+            <Text style={styles.singin}> <Link href="/ES_envioCodigo">Reenviar em 1:20</Link></Text>
+                          
             <Link style={styles.navButton} href="/confirmacao">
                 <Text style={styles.buttonText}>Criar</Text>
             </Link> 
               
         </View>
+
+        </ScrollView>
+        </KeyboardAvoidingView>
 
     )
 }
@@ -76,6 +88,12 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         width: 70,
         height: 70
+    },
+
+    singin:{
+        marginTop: 8,
+        textAlign: 'left',
+        color: "#8FA31E",
     },
 
     navButton:{

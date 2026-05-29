@@ -3,14 +3,15 @@ import { Link } from "expo-router"
 
 export default function ES_envioCodigo(){
     return(
+
         <View style={styles.body}>
                 
-            <Link style={styles.navImagen} href="/esqueceuSenha">
+            <Link style={styles.navImagen} href="/confirmacao">
                 <Image source={require("../assets/return.png")}style={styles.seta}/>
             </Link>
                 
             <Text style={styles.title}>Código enviado</Text>
-            <Text style={styles.text}>Sua senha foi enviada para seu e-mail, por favor verifique-o</Text>
+            <Text style={styles.text}>Seu código foi enviado para seu e-mail, por favor verifique-o</Text>
             <Text style={styles.forgotpass}> <Link href="/reenviar">Reenviar em 1:20</Link></Text>
         
         </View>

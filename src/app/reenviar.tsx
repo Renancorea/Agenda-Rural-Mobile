@@ -11,7 +11,6 @@ export default function ES_envioCodigo(){
                 
             <Text style={styles.title}>Código enviado</Text>
             <Text style={styles.text}>Sua senha foi enviada para seu e-mail, por favor verifique-o</Text>
-            <Text style={styles.forgotpass}> <Link href="/reenviar2">Clique aqui para reenviar o código</Link></Text>
                                                     
         </View>
     )
@@ -53,13 +52,13 @@ const styles= StyleSheet.create({
         marginTop: 15,
     },
 
-    forgotpass: {
+   /* forgotpass: {
         width: "100%",
         textAlign: "center",
         marginTop: 10,
         marginBottom: 10,
         fontSize:15,
         color:'#8FA31E',
-    },
+    },*/
 
 })

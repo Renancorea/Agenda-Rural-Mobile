@@ -1,8 +1,15 @@
 import { TouchableOpacity, Button, View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
 import { Link } from "expo-router"
 
-export default function esqueceuSenha(){
+export default function esqueceuSenha() {
     return(
+
+      
+        <ScrollView /*Para rolar a tela*/
+            contentContainerStyle={{ flexGrow: 1 }}
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
+
         <View style={styles.body}>
         
             <Link style={styles.navImagen} href="/">
@@ -16,15 +23,19 @@ export default function esqueceuSenha(){
                 <TextInput placeholder="E-mail" style={styles.input}></TextInput>
             </View>
 
-            <Link style={styles.navButton} href="/ES_envioCodigo">
-                <Text style={styles.buttonText}>Seguir</Text>
-            </Link>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Enviar</Text>
+            </TouchableOpacity>
+            </View> 
 
-        </View>
+        </View> 
+        </ScrollView>
+        
+
     )
-
-}
-
+};
+    
 const styles = StyleSheet.create({
     body:{
         flex: 1,
@@ -76,24 +87,27 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
 
-    navButton:{
-        marginTop: "100%",
-        width: "100%",
+    buttonContainer:{
+        marginTop:50,
+        width:"100%",
+    },
+
+    button:{
         height: 50,
-        verticalAlign:"middle",
-        backgroundColor: "#8FA31E",
-        borderRadius: 15,
-        color: "#000000"
+        backgroundColor: '#8FA31E',
+        borderRadius: 4,
+        alignItems: 'center',
+        justifyContent: 'center',
+
     },
 
     buttonText:{
-        fontSize: 30,
+        fontSize: 24,
         color:'#EFF5D2',
         margin:'auto',
-        height:"100%",
-        textAlign: 'center',
         fontWeight: "bold",
     },
+    
 })
 
 
