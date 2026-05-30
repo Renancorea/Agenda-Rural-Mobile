@@ -1,7 +1,7 @@
 import { StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
-import { Link } from "expo-router"
+import { Botao, BotaoImagem } from "../components/botoes"
 import { createTamagui, TamaguiProvider, View } from 'tamagui'
-import { defaultConfig } from '@tamagui/config/v5' // for quick config install this
+import { defaultConfig } from '@tamagui/config/v5' // for quick config install thi
 
 
 const config = createTamagui(defaultConfig)
@@ -9,13 +9,16 @@ const config = createTamagui(defaultConfig)
 export default function esqueceuSenha(){
     return(
         <TamaguiProvider config={config} defaultTheme={undefined}>
+<ScrollView /*Para rolar a tela*/
+                contentContainerStyle={{ flexGrow: 1 }}
+                keyboardShouldPersistTaps="handled"
+                showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
 
         <View style={styles.body}>
         
-            <Link style={styles.navImagen} href="/">
-                <Image source={require("../assets/return.png")} style={styles.seta}/>
-            </Link>
-        
+            
+            <BotaoImagem caminho="/telaInicial" imagem={require("../assets/return.png")}></BotaoImagem>
+
             <Text style={styles.title}>Esqueceu a senha?</Text>
             <Text style={styles.text}>Digite seu Email para recuperar sua senha:</Text>
 
@@ -23,11 +26,11 @@ export default function esqueceuSenha(){
                 <TextInput placeholder="E-mail" style={styles.input}></TextInput>
             </View>
 
-            <Link style={styles.navButton} href="/codigoEnviado">
-                <Text style={styles.buttonText}>Seguir</Text>
-            </Link>
+            
+            <Botao caminho="/codigoEnviado" texto="Seguir"></Botao>
 
         </View>
+                </ScrollView>
         </TamaguiProvider>
     )
 
@@ -40,17 +43,6 @@ const styles = StyleSheet.create({
         padding: 32, 
         alignItems: "flex-start",
         width:"100%"
-    },
-
-    navImagen:{
-        marginTop: 20,
-    },
-
-    seta: {
-        width: 25, 
-        height: 25,
-        resizeMode: "contain",
-        marginTop: 40,
     },
 
     title:{
@@ -82,25 +74,6 @@ const styles = StyleSheet.create({
     inputBox:{
         width:"100%",
         marginTop: 30,
-    },
-
-    navButton:{
-        marginTop: "100%",
-        width: "100%",
-        height: 50,
-        verticalAlign:"middle",
-        backgroundColor: "#8FA31E",
-        borderRadius: 15,
-        color: "#000000"
-    },
-
-    buttonText:{
-        fontSize: 30,
-        color:'#EFF5D2',
-        margin:'auto',
-        height:"100%",
-        textAlign: 'center',
-        fontWeight: "bold",
     },
 })
 

@@ -9,6 +9,10 @@
     export default function cadastro(){
         return( 
             <TamaguiProvider config={config} defaultTheme={undefined}>
+<ScrollView /*Para rolar a tela*/
+                contentContainerStyle={{ flexGrow: 1 }}
+                keyboardShouldPersistTaps="handled"
+                showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
 
             <View style={styles.body}> 
             
@@ -45,6 +49,7 @@
                 <Botao texto="Criar" caminho="/confirmacao" />
 
             </View>
+                </ScrollView>
             </TamaguiProvider>
         )
     }
@@ -58,12 +63,6 @@
             width:"100%"
         },
 
-        seta: {
-            width: 25, 
-            height: 25,
-            resizeMode: "contain",
-        },
-
         title: {
             textAlign:"center",
             width:"100%",
@@ -72,21 +71,7 @@
             fontWeight: "bold",
             color: "#8FA31E",  
         },
-
-        navImagen:{
-            marginTop: 20,
-        },
-
-        navButton:{
-            marginTop: "50%",
-            width: "100%",
-            height: 50,
-            verticalAlign:"middle",
-            backgroundColor: "#8FA31E",
-            borderRadius: 15,
-            color: "#000000"
-        },
-
+        
         inputBox:{
             width:"100%",
             marginTop: 10,
@@ -111,24 +96,6 @@
         form:{
             width:"100%",
             marginTop: 30,
-        },
-
-        loginButton:{
-            marginTop: "50%",
-            height: 50,
-            width: "100%",
-            alignItems:"center",
-            backgroundColor: "#8FA31E",
-            borderRadius: 15,
-        },
-
-        buttonText:{
-            fontSize: 30,
-            color:'#EFF5D2',
-            margin:'auto',
-            height:"100%",
-            textAlign: 'center',
-            fontWeight: "bold",
         },
 
     })

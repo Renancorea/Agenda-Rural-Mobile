@@ -9,16 +9,21 @@ const config = createTamagui(defaultConfig)
 export default function ES_envioCodigo(){
     return(
         <TamaguiProvider config={config} defaultTheme={undefined}>
+<ScrollView /*Para rolar a tela*/
+                contentContainerStyle={{ flexGrow: 1 }}
+                keyboardShouldPersistTaps="handled"
+                showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
 
         <View style={styles.body}>
                 
             <BotaoImagem imagem={require("../assets/return.png")} caminho="/esqueceuSenha" />
                 
-            <Text style={styles.title}>Código enviado</Text>
+            <Text style={styles.title}>Senha enviada</Text>
             <Text style={styles.text}>Sua senha foi enviada para seu e-mail, por favor verifique-o</Text>
             <Text style={styles.forgotpass}>Reenviar em 1:20</Text>
         
         </View>
+                </ScrollView>
         </TamaguiProvider>
     )
 }
@@ -30,17 +35,6 @@ const styles= StyleSheet.create({
         padding: 32, 
         alignItems: "flex-start",
         width:"100%"
-    },
-
-    navImagen:{
-        marginTop: 20,
-    },
-
-    seta: {
-        width: 25, 
-        height: 25,
-        resizeMode: "contain",
-        marginTop: 40,
     },
 
     title:{

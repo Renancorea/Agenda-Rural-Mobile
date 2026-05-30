@@ -1,6 +1,6 @@
 import { StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
 import { createTamagui, TamaguiProvider, View } from 'tamagui'
-import { defaultConfig } from '@tamagui/config/v5' // for quick config install this
+import { defaultConfig } from '@tamagui/config/v5'
 import { BotaoImagem, Botao } from "../components/botoes"
 
 const config = createTamagui(defaultConfig)
@@ -8,6 +8,10 @@ const config = createTamagui(defaultConfig)
 export default function confirmacao(){
     return(
         <TamaguiProvider config={config} defaultTheme={undefined}>
+<ScrollView /*Para rolar a tela*/
+                contentContainerStyle={{ flexGrow: 1 }}
+                keyboardShouldPersistTaps="handled"
+                showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
 
         <View style={styles.body}>
 
@@ -26,6 +30,7 @@ export default function confirmacao(){
             <Botao texto="Criar" caminho="/confirmacao" />
               
         </View>
+                </ScrollView>
         </TamaguiProvider>
 
     )
@@ -38,17 +43,6 @@ const styles = StyleSheet.create({
         padding: 32, 
         alignItems: "flex-start",
         width:"100%"
-    },
-
-    navImagen:{
-        marginTop: 20,
-    },
-
-    seta: {
-        width: 25, 
-        height: 25,
-        resizeMode: "contain",
-        marginTop: 40,
     },
 
     title:{
@@ -80,25 +74,6 @@ const styles = StyleSheet.create({
         width: 70,
         height: 70
     },
-
-    navButton:{
-        marginTop: "100%",
-        width: "100%",
-        height: 50,
-        verticalAlign:"middle",
-        backgroundColor: "#8FA31E",
-        borderRadius: 15,
-        color: "#000000"
-    },
-
-    buttonText:{
-        fontSize: 30,
-        color:'#EFF5D2',
-        margin:'auto',
-        height:"100%",
-        textAlign: 'center',
-        fontWeight: "bold",
-    }
 
 })
     

@@ -6,7 +6,8 @@ type Rotas =
     | "/cadastro"
     | "/confirmacao"
     | "/esqueceuSenha"
-    | "/telaInicial";
+    | "/telaInicial"
+    | "/codigoEnviado";
 
 type Props = {
     texto: string;

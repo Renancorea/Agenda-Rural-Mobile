@@ -1,7 +1,5 @@
 import { TextInput, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native"
-import { Link } from "expo-router";
 import { Botao, BotaoTexto } from "../components/botoes"
-
 import { createTamagui, TamaguiProvider, View } from 'tamagui'
 import { defaultConfig } from '@tamagui/config/v5' // for quick config install this
 
@@ -86,22 +84,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
 
-    button: {
-        height: 50,
-        backgroundColor: '#8FA31E',
-        borderRadius: 4,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: "100%"
-    },
-
-    buttonText: {
-        fontSize: 24,
-        color:'#EFF5D2',
-        margin:'auto',
-        fontWeight: "bold",
-    },
-
     illustration_logo: {
         width: "100%",
         height: 200,
@@ -118,18 +100,6 @@ const styles = StyleSheet.create({
         color: '#4F2D1A'
     },
 
-    singin: {
-        marginTop: 12,
-        textAlign: 'left',
-        color: "#8FA31E",
-    },
-
-     forgotpass: {
-        marginBottom: 10,
-        fontSize:16,
-        color:'#8FA31E',
-    },
-
     subtitle: {
         width: "100%",
         fontSize: 16,
@@ -139,11 +109,6 @@ const styles = StyleSheet.create({
     form: {
         marginTop: "15%",
         gap: 12,
-    },
-
-    footerLink: {
-        color: '#e93650',
-        fontWeight: 700,
     },
 
 });
