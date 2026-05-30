@@ -1,23 +1,29 @@
-import { TouchableOpacity, Button, View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
-import { Link } from "expo-router"
+import { StyleSheet, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
+
+import { createTamagui, TamaguiProvider, View } from 'tamagui'
+import { defaultConfig } from '@tamagui/config/v5' // for quick config install this
+import { BotaoImagem } from "../components/botoes"
+
+const config = createTamagui(defaultConfig)
 
 export default function ES_envioCodigo(){
     return(
+        <TamaguiProvider config={config} defaultTheme={undefined}>
+
         <View style={styles.body}>
                 
-            <Link style={styles.navImagen} href="/ES_envioCodigo">
-                <Image source={require("../assets/return.png")}style={styles.seta}/>
-            </Link>
+            <BotaoImagem imagem={require("../assets/return.png")} caminho="/esqueceuSenha" />
                 
             <Text style={styles.title}>Código enviado</Text>
             <Text style={styles.text}>Sua senha foi enviada para seu e-mail, por favor verifique-o</Text>
-            <Text style={styles.forgotpass}> <Link href="/reenviar2">Clique aqui para reenviar o código</Link></Text>
-                                                    
+            <Text style={styles.forgotpass}>Reenviar em 1:20</Text>
+        
         </View>
+        </TamaguiProvider>
     )
 }
 
-const styles = StyleSheet.create({
+const styles= StyleSheet.create({
     body:{
         flex: 1,
         backgroundColor: "#EFF5D2",
