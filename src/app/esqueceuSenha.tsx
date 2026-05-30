@@ -1,12 +1,19 @@
-import { TouchableOpacity, Button, View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
+import { StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
 import { Link } from "expo-router"
+import { createTamagui, TamaguiProvider, View } from 'tamagui'
+import { defaultConfig } from '@tamagui/config/v5' // for quick config install this
+
+
+const config = createTamagui(defaultConfig)
 
 export default function esqueceuSenha(){
     return(
+        <TamaguiProvider config={config} defaultTheme={undefined}>
+
         <View style={styles.body}>
         
             <Link style={styles.navImagen} href="/">
-                <Image source={require("../assets/return.png")}style={styles.seta}/>
+                <Image source={require("../assets/return.png")} style={styles.seta}/>
             </Link>
         
             <Text style={styles.title}>Esqueceu a senha?</Text>
@@ -16,11 +23,12 @@ export default function esqueceuSenha(){
                 <TextInput placeholder="E-mail" style={styles.input}></TextInput>
             </View>
 
-            <Link style={styles.navButton} href="/ES_envioCodigo">
+            <Link style={styles.navButton} href="/codigoEnviado">
                 <Text style={styles.buttonText}>Seguir</Text>
             </Link>
 
         </View>
+        </TamaguiProvider>
     )
 
 }

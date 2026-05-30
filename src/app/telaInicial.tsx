@@ -1,13 +1,20 @@
-import { Button, TextInput, View, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native"
-import { Link } from "expo-router"
+import { TextInput, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native"
+import { Link } from "expo-router";
+import { Botao, BotaoTexto } from "../components/botoes"
+
+import { createTamagui, TamaguiProvider, View } from 'tamagui'
+import { defaultConfig } from '@tamagui/config/v5' // for quick config install this
+
+const config = createTamagui(defaultConfig)
 
 /*não ser visivel a senha (editable={false}) 
-  a bolinha na senha (secureTextEndry)
+  a bolinha na senha (secureTextEntry)
   (keyboardType="") seria o tipo de teclado*/
 
-export default function Tela_Inicial() {
+export default function telaInicial() {
     return (
- 
+ <TamaguiProvider config={config} defaultTheme={undefined}>
+
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.select({ ios: "padding", android: "height" })}>
             <ScrollView /*Para rolar a tela*/
                 contentContainerStyle={{ flexGrow: 1 }}
@@ -27,25 +34,23 @@ export default function Tela_Inicial() {
                                     <View style={styles.inputBox}>                                        
                                         <TextInput placeholder="E-mail" style={styles.input}></TextInput>
                                     </View>
-                    
+                                    
                                     <View style={styles.inputBox}>
                                         <TextInput placeholder="Senha" style={styles.input}></TextInput>
-                                        <Text style={styles.forgotpass}> <Link href="/esqueceuSenha"> Esqueceu a senha? </Link></Text>
+                                        <BotaoTexto caminho="/esqueceuSenha" texto="Esqueceu a senha?" />
                                     </View>
                     </View> 
 
 
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity style={styles.button}>
-                            <Text style={styles.buttonText}>Entrar</Text>
-                        </TouchableOpacity>
-
-                         <Text style={styles.singin}> <Link href="/cadastro"> Não tem uma conta? Cadastre-se </Link></Text>
+                        <Botao texto="Entrar" caminho="/cadastro" />
+                         <BotaoTexto caminho="/cadastro" texto="Não tem uma conta? Cadastre-se" />
                     </View>
 
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
+                    </TamaguiProvider>
     )
 };
 const styles = StyleSheet.create({
@@ -121,7 +126,7 @@ const styles = StyleSheet.create({
 
      forgotpass: {
         marginBottom: 10,
-        fontSize:15,
+        fontSize:16,
         color:'#8FA31E',
     },
 
