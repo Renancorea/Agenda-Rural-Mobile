@@ -2,12 +2,14 @@ import { Button, Text } from "tamagui";
 import { router } from "expo-router";
 import { Image } from "react-native"
 
+
 type Rotas =
     | "/cadastro"
     | "/confirmacao"
     | "/esqueceuSenha"
     | "/telaInicial"
     | "/codigoEnviado";
+
 
 type Props = {
     texto: string;
@@ -93,6 +95,27 @@ export function BotaoImagem({ imagem, caminho }: { imagem: any; caminho: Rotas }
                 backgroundColor: "transparent"
             }}
             onPress={() => router.push(caminho)}
+        >
+            <Image
+                source={imagem}
+                style={{
+                    width: 25,
+                    height: 25,
+                }}
+            />
+        </Button>
+    )
+}
+export function BotaoImagemFuncao({ imagem }: { imagem: any}) {
+
+    return (
+        <Button
+            backgroundColor="transparent"
+            borderWidth={0}
+            pressStyle={{
+                scale: 1.02,
+                backgroundColor: "transparent"
+            }}
         >
             <Image
                 source={imagem}
