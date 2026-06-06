@@ -30,19 +30,19 @@ export default function telaInicial() {
                             <Text style={styles.subtitle}>Acesse sua conta com E-mail e Senha</Text>
 
                             <View style={styles.inputBox}>
-                                <EntradaTexto texto={"E-mail"} senha={0} />
+                                <EntradaTexto texto={"E-mail"}/>
                             </View>
 
                             <View style={styles.inputBox}>
-                                <EntradaSenha texto={"Senha"} senha={1} />
-                                <BotaoTexto caminho="/esqueceuSenha" texto="Esqueceu a senha?" />
+                                <EntradaSenha texto={"Senha"}/>
+                                <BotaoTexto caminho="/esqueceuSenha" texto="Esqueceu a senha?" tipo="button" />
                             </View>
                         </View>
 
 
                         <View style={styles.buttonContainer}>
-                            <Botao texto="Entrar" caminho="/cadastro" />
-                            <BotaoTexto caminho="/cadastro" texto="Não tem uma conta? Cadastre-se" />
+                            <Botao texto="Entrar" caminho="/cadastro" tipo="submit" />
+                            <BotaoTexto caminho="/cadastro" texto="Não tem uma conta? Cadastre-se" tipo="button" />
                         </View>
 
                     </View>

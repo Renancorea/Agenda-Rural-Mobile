@@ -1,3 +1,4 @@
+/*
 import { type SQLiteDatabase} from 'expo-sqlite';
 
 export async function initializeDatabase( database: SQLiteDatabase) { //Função para criar a tabela de agricultores, caso ela ainda não existisse .
@@ -10,3 +11,4 @@ export async function initializeDatabase( database: SQLiteDatabase) { //Função
         )
     `)
 }
+*/
