@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { StyleSheet } from "react-native";
 import { Input, XStack } from "tamagui";
 import { BotaoImagemFuncao } from "./botoes";
-import { StyleSheet, View } from "react-native";
 
 type Props = {
     texto: string;
@@ -17,7 +17,7 @@ export function EntradaSenha({ texto }: Props) {
             borderRadius={4}
             marginBottom={12}
             backgroundColor="transparent"
-        
+
         >
             <Input
                 flex={1}
@@ -26,13 +26,13 @@ export function EntradaSenha({ texto }: Props) {
                 type={seguro ? "password" : "text"}
                 backgroundColor="transparent"
                 color="#4F2D1A"
-                height= {45}
-                borderColor= "#4F2D1A"
-                alignItems= "center"
-                fontSize= {20}
+                height={45}
+                borderColor="#4F2D1A"
+                alignItems="center"
+                fontSize={20}
                 focusStyle={{
-                borderColor: "#4F2D1A",
-                outlineColor: "transparent",
+                    borderColor: "#4F2D1A",
+                    outlineColor: "transparent",
                 }}
             />
 
@@ -45,7 +45,7 @@ export function EntradaSenha({ texto }: Props) {
                 onPress={() => setSeguro(!seguro)}
             ></BotaoImagemFuncao>
         </XStack>
-    
+
     );
 }
 
@@ -54,20 +54,20 @@ export function EntradaTexto({ texto }: Props) {
     return (
 
         <Input
-        height= {45}
-        borderColor= "#4F2D1A"
-        borderWidth= {1}
-        marginBottom= {12}
-        borderRadius= {4}
-        alignItems= "center"
-        fontSize= {20}
-        placeholder={texto}
-        backgroundColor="transparent"
-        color="#4F2D1A"
-        focusStyle={{
-        borderColor: "#4F2D1A",
-        outlineColor: "transparent",
-    }}>
+            height={45}
+            borderColor="#4F2D1A"
+            borderWidth={1}
+            marginBottom={12}
+            borderRadius={4}
+            alignItems="center"
+            fontSize={20}
+            placeholder={texto}
+            backgroundColor="transparent"
+            color="#4F2D1A"
+            focusStyle={{
+                borderColor: "#4F2D1A",
+                outlineColor: "transparent",
+            }}>
         </Input>
     )
 }
@@ -76,34 +76,56 @@ export function EntradaCodigo() {
 
     return (
 
-        <View>
-        <Input
-        style={styles.estilo}
-        focusStyle={styles.estiloFocus}>
-        </Input>
-        <Input
-        style={styles.estilo}
-        focusStyle={styles.estiloFocus}>
-        </Input>
-        <Input
-        style={styles.estilo}
-        focusStyle={styles.estiloFocus}>
-        </Input>
-            </View>
-        )
-    }
+        <XStack
+            justifyContent="center"
+
+            backgroundColor="transparent"
+        >
+
+            <Input
+                style={styles.estilo}
+                focusStyle={styles.estiloFocus}
+                maxLength={1}
+                keyboardType="numeric">
+            </Input>
+            <Input
+                style={styles.estilo}
+                focusStyle={styles.estiloFocus}
+                maxLength={1}
+                keyboardType="numeric">
+            </Input>
+            <Input
+                style={styles.estilo}
+                focusStyle={styles.estiloFocus}
+                maxLength={1}
+                keyboardType="numeric">
+            </Input>
+            <Input
+                style={styles.estilo}
+                focusStyle={styles.estiloFocus}
+                maxLength={1}
+                keyboardType="numeric">
+            </Input>
+        </XStack>
+
+    )
+}
 
 const styles = StyleSheet.create({
     estilo: {
-        height: 45,
+        height: 65,
         borderColor: "#4F2D1A",
         borderWidth: 1,
+        width: "20%",
         marginBottom: 12,
         borderRadius: 4,
-        alignItems: "center",
-        fontSize: 20,
+        fontSize: 30,
+        textAlign: "center",
         backgroundColor: "transparent",
         color: "#4F2D1A",
+        margin: 8,
+        marginTop: 20,
+        
     },
     estiloFocus: {
         borderColor: "#4F2D1A",

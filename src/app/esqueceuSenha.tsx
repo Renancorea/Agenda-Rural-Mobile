@@ -2,7 +2,7 @@ import { StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, Te
 import { Botao, BotaoImagem } from "../components/botoes"
 import { createTamagui, TamaguiProvider, View } from 'tamagui'
 import { defaultConfig } from '@tamagui/config/v5' // for quick config install thi
-
+import { EntradaTexto } from "../components/caixasDeTexto"
 
 const config = createTamagui(defaultConfig)
 
@@ -23,11 +23,11 @@ export default function esqueceuSenha(){
             <Text style={styles.text}>Digite seu Email para recuperar sua senha:</Text>
 
             <View style={styles.inputBox}>                                        
-                <TextInput placeholder="E-mail" style={styles.input}></TextInput>
+                <EntradaTexto texto="E-mail"></EntradaTexto>
             </View>
 
             
-            <Botao caminho="/codigoEnviado" texto="Seguir"></Botao>
+            <Botao caminho="/codigoEnviado" texto="Seguir" tipo="submit"></Botao>
 
         </View>
                 </ScrollView>

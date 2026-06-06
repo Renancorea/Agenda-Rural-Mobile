@@ -2,7 +2,7 @@
     import { Botao, BotaoImagem } from "../components/botoes"
     import { createTamagui, TamaguiProvider, View } from 'tamagui'
     import { defaultConfig } from '@tamagui/config/v5' // for quick config install this
-
+    import { EntradaTexto, EntradaSenha } from "../components/caixasDeTexto"
 
     const config = createTamagui(defaultConfig)
 
@@ -25,28 +25,28 @@
 
                     <View style={styles.inputBox}>
                         <Text style={styles.label}>Nome</Text>
-                        <TextInput style={styles.input}></TextInput>
+                        <EntradaTexto texto="Nome"></EntradaTexto>
                     </View>
 
                     <View style={styles.inputBox}>
                         <Text style={styles.label}>Email</Text>
-                        <TextInput style={styles.input}></TextInput>
+                        <EntradaTexto texto="Email"></EntradaTexto>
                     </View>
 
                     <View style={styles.inputBox}>
                         <Text style={styles.label}>Senha</Text>
-                        <TextInput style={styles.input}></TextInput>
+                        <EntradaSenha texto="Senha"></EntradaSenha>
                         <Text style={styles.forgotpass}>Minimo 8 caracteres</Text>
                     </View>
 
                     <View style={styles.inputBox}>
                         <Text style={styles.label}>Confirmar senha</Text>
-                        <TextInput style={styles.input}></TextInput>
+                        <EntradaSenha texto="Confirmar senha"></EntradaSenha>
                     </View>
 
                 </View>
                     
-                <Botao texto="Criar" caminho="/confirmacao" />
+                <Botao texto="Criar" caminho="/confirmacao" tipo="button"/>
 
             </View>
                 </ScrollView>

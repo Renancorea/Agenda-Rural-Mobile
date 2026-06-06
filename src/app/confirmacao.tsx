@@ -2,6 +2,7 @@ import { StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, Te
 import { createTamagui, TamaguiProvider, View } from 'tamagui'
 import { defaultConfig } from '@tamagui/config/v5'
 import { BotaoImagem, Botao } from "../components/botoes"
+import { EntradaCodigo } from "../components/caixasDeTexto"
 
 const config = createTamagui(defaultConfig)
 
@@ -20,14 +21,9 @@ export default function confirmacao(){
             <Text style={styles.title}>Confirmação!</Text>
             <Text style={styles.text}>Para confirmarmos a criação da sua conta enviamos o código de verificação para o e-mail que você cadastrou, insira-o abaixo:</Text>
 
-            <View style={styles.inputBox}>
-                <View><TextInput style={styles.input}></TextInput></View>
-                <View><TextInput style={styles.input}></TextInput></View>
-                <View><TextInput style={styles.input}></TextInput></View>
-                <View><TextInput style={styles.input}></TextInput></View>
-            </View>
-                   
-            <Botao texto="Criar" caminho="/confirmacao" />
+            <EntradaCodigo></EntradaCodigo>
+
+            <Botao texto="Criar" caminho="/confirmacao" tipo="button"/>
               
         </View>
                 </ScrollView>
@@ -61,19 +57,6 @@ const styles = StyleSheet.create({
         marginTop: 15,
     },
 
-    inputBox:{
-        marginTop: 30,
-        justifyContent: "center",       
-        flexDirection: "row",
-        gap: 10,
-    },
-
-     input:{
-        borderWidth: 1,
-        borderRadius: 5,
-        width: 70,
-        height: 70
-    },
 
 })
     
