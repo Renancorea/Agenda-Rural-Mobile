@@ -1,99 +1,103 @@
-import { defaultConfig } from '@tamagui/config/v5'; // for quick config install this
-import { Image, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text } from "react-native"
-import { createTamagui, TamaguiProvider, View } from 'tamagui'
-import { Botao, BotaoTexto } from "../components/botoes"
-import { EntradaSenha, EntradaTexto } from "../components/caixasDeTexto"
+import { defaultConfig } from "@tamagui/config/v5";
+import { Image, KeyboardAvoidingView, Platform, ScrollView, StyleSheet } from "react-native";
+import { createTamagui, TamaguiProvider, View } from "tamagui";
 
-const config = createTamagui(defaultConfig)
-/*não ser visivel a senha (editable={false}) 
-  a bolinha na senha (secureTextEntry)
-  (keyboardType="") seria o tipo de teclado*/
+import { Botao, BotaoTexto } from "../components/botoes";
+import { EntradaSenha, EntradaTexto } from "../components/caixasDeTexto";
+import { Titulo, Texto } from "@/components/textos";
 
-export default function telaInicial() {
+const config = createTamagui(defaultConfig);
+
+/*
+    secureTextEntry -> exibe bolinhas na senha
+    keyboardType -> define o tipo do teclado
+*/
+
+export default function TelaInicial() {
     return (
-        <TamaguiProvider config={config} defaultTheme={undefined}>
-
-            <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.select({ ios: "padding", android: "height" })}>
-                <ScrollView /*Para rolar a tela*/
+        <TamaguiProvider
+            config={config}
+            defaultTheme={undefined}
+        >
+            <KeyboardAvoidingView
+                style={{ flex: 1 }}
+                behavior={Platform.select({
+                    ios: "padding",
+                    android: "height",
+                })}
+            >
+                <ScrollView
                     contentContainerStyle={{ flexGrow: 1 }}
                     keyboardShouldPersistTaps="handled"
-                    showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
-
+                    showsVerticalScrollIndicator={false}
+                >
                     <View style={styles.container}>
-
                         <View style={styles.header}>
-                            <Image source={require("../assets/logo.png")} style={styles.illustration_logo} />
-                            <Text style={styles.title}>Bem vindo ao Agenda Rural</Text>
+                            <Image
+                                source={require("../assets/logo.png")}
+                                style={styles.illustrationLogo}
+                            />
+
+                            <View style={{ marginTop: 20 }}>
+                                <Titulo
+                                    cor="#4F2D1A"
+                                    texto="Bem vindo ao Agenda Rural"
+                                />
+                            </View>
                         </View>
 
                         <View style={styles.form}>
-                            <Text style={styles.subtitle}>Acesse sua conta com E-mail e Senha</Text>
+                            <Texto
+                                cor="#4F2D1A"
+                                texto="Acesse sua conta com E-mail e Senha"
+                            />
 
                             <View style={styles.inputBox}>
-                                <EntradaTexto texto={"E-mail"}/>
+                                <EntradaTexto texto="E-mail" />
                             </View>
 
                             <View style={styles.inputBox}>
-                                <EntradaSenha texto={"Senha"}/>
-                                <BotaoTexto caminho="/esqueceuSenha" texto="Esqueceu a senha?" tipo="button" />
+                                <EntradaSenha texto="Senha" />
+
+                                <BotaoTexto
+                                    caminho="/esqueceuSenha"
+                                    texto="Esqueceu a senha?"
+                                    tipo="button"
+                                />
                             </View>
                         </View>
-
 
                         <View style={styles.buttonContainer}>
-                            <Botao texto="Entrar" caminho="/cadastro" tipo="submit" />
-                            <BotaoTexto caminho="/cadastro" texto="Não tem uma conta? Cadastre-se" tipo="button" />
-                        </View>
+                            <Botao
+                                texto="Entrar"
+                                caminho="/cadastro"
+                                tipo="submit"
+                            />
 
+                        </View>
+                            <BotaoTexto
+                                caminho="/cadastro"
+                                texto="Não tem uma conta? Cadastre-se"
+                                tipo="button"
+                            />
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>
         </TamaguiProvider>
-    )
-};
-const styles = StyleSheet.create({
+    );
+}
 
+const styles = StyleSheet.create({
     container: {
         height: "100%",
-        backgroundColor: '#EFF5D2',
+        backgroundColor: "#EFF5D2",
         padding: 32,
     },
 
     header: {
-        textAlign: "center",
         alignItems: "center",
-        backgroundColor: '#EFF5D2',
+        backgroundColor: "#EFF5D2",
         padding: 0,
-    },
-
-    buttonContainer: {
-        marginTop: 24,
-    },
-    inputBox: {
-        width: "100%",
-        marginTop: 10,
-    },
-
-    illustration_logo: {
-        width: "100%",
-        height: 200,
-        resizeMode: "contain",
-        marginTop: "10%",
-    },
-
-    title: {
-        textAlign: "center",
-        height: 100,
-        width: "80%",
-        fontSize: 38,
-        fontWeight: 900,
-        color: '#4F2D1A'
-    },
-
-    subtitle: {
-        width: "100%",
-        fontSize: 16,
-        textAlign: "center",
     },
 
     form: {
@@ -101,4 +105,20 @@ const styles = StyleSheet.create({
         gap: 12,
     },
 
+    inputBox: {
+        width: "100%",
+        marginTop: 10,
+    },
+
+    buttonContainer: {
+        marginTop: 24,
+        marginBottom: 12,   
+    },
+
+    illustrationLogo: {
+        width: "100%",
+        height: 200,
+        resizeMode: "contain",
+        marginTop: "10%",
+    },
 });
