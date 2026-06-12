@@ -84,7 +84,7 @@ export function BotaoTexto({ texto, caminho }: Props) {
             onPress={() => router.push(caminho)}
             cursor="pointer"
             pressStyle={{
-                scale: 1.02,
+                scale: 0.98,
                 color: '#768618'
             }}
         >{texto}</Text>
@@ -98,7 +98,7 @@ export function BotaoImagem({ imagem, caminho }: { imagem: any; caminho: Rotas }
             backgroundColor="transparent"
             borderWidth={0}
             pressStyle={{
-                scale: 1.02,
+                scale: 0.98,
                 backgroundColor: "transparent"
             }}
             onPress={() => router.push(caminho)}

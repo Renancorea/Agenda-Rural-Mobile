@@ -23,12 +23,18 @@ export default function Confirmacao() {
                 contentContainerStyle={{ flexGrow: 1 }}
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}
+                style={styles.pagina}
             >
-                <View style={styles.body}>
+                
+                    <View
+                    alignItems="flex-start"
+                >
+
                     <BotaoImagem
+                        caminho="/telaInicial"
                         imagem={require("../assets/return.png")}
-                        caminho="/cadastro"
                     />
+                </View>
 
                     <Titulo
                         cor="#8FA31E"
@@ -47,18 +53,17 @@ export default function Confirmacao() {
                         caminho="/confirmacao"
                         tipo="button"
                     />
-                </View>
+                
             </ScrollView>
         </TamaguiProvider>
     );
 }
 
 const styles = StyleSheet.create({
-    body: {
+    pagina: {
         flex: 1,
         backgroundColor: "#EFF5D2",
         padding: 32,
-        alignItems: "flex-start",
         width: "100%",
     },
 });

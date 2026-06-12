@@ -18,12 +18,17 @@ export default function EsqueceuSenha() {
                 contentContainerStyle={{ flexGrow: 1 }}
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}
+                style={styles.pagina}
             >
-                <View style={styles.body}>
+                <View
+                    alignItems="flex-start"
+                >
+
                     <BotaoImagem
                         caminho="/telaInicial"
                         imagem={require("../assets/return.png")}
                     />
+                </View>
 
                     <Titulo
                         cor="#8FA31E"
@@ -35,7 +40,7 @@ export default function EsqueceuSenha() {
                         texto="Digite seu Email para recuperar sua senha:"
                     />
 
-                    <View style={styles.inputBox}>
+                    <View style={styles.caixaEntrada}>
                         <EntradaTexto texto="E-mail" />
                     </View>
 
@@ -44,22 +49,20 @@ export default function EsqueceuSenha() {
                         texto="Seguir"
                         tipo="submit"
                     />
-                </View>
             </ScrollView>
         </TamaguiProvider>
     );
 }
 
 const styles = StyleSheet.create({
-    body: {
+    pagina: {
         flex: 1,
         backgroundColor: "#EFF5D2",
         padding: 32,
-        alignItems: "flex-start",
         width: "100%",
     },
 
-    inputBox: {
+    caixaEntrada: {
         width: "100%",
         marginTop: 30,
     },

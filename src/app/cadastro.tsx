@@ -1,10 +1,10 @@
-import { StyleSheet, Text, ScrollView, View } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import { Botao, BotaoImagem } from "../components/botoes";
-import { createTamagui, TamaguiProvider } from "tamagui";
+import { createTamagui, TamaguiProvider, View } from "tamagui";
 
 import { EntradaTexto,EntradaSenha } from "../components/caixasDeTexto";
 import { defaultConfig } from "@tamagui/config/v5";
-import { Titulo, Texto, TextoEtiqueta, TextoFuncao } from "@/components/textos";
+import { Titulo, TextoEtiqueta } from "@/components/textos";
 
 const config = createTamagui(defaultConfig);
 
@@ -18,29 +18,33 @@ export default function Cadastro() {
                 contentContainerStyle={{ flexGrow: 1 }}
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}
+                style={styles.pagina}
             >
-                <View style={styles.pagina}>
-                    <BotaoImagem
-                        imagem={require("../assets/return.png")}
-                        caminho="/telaInicial"
-                    />
-
+                                    <View
+                                      alignItems="flex-start"
+                                  >
+                  
+                                      <BotaoImagem
+                                          caminho="/telaInicial"
+                                          imagem={require("../assets/return.png")}
+                                      />
+                                  </View>
                     <Titulo  cor="#8FA31E" texto="Crie sua conta!" />
 
                     <View style={styles.formulario}>
-                        <View style={styles.inputBox}>
+                        <View style={styles.caixaEntrada}>
                             <TextoEtiqueta cor="#4F2D1A" texto="Nome" />
 
                             <EntradaTexto texto="Nome" />
                         </View>
 
-                        <View style={styles.inputBox}>
+                        <View style={styles.caixaEntrada}>
                             <TextoEtiqueta  cor="#4F2D1A" texto="Email" />
 
                             <EntradaTexto texto="Email" />
                         </View>
 
-                        <View style={styles.inputBox}>
+                        <View style={styles.caixaEntrada}>
                             <TextoEtiqueta cor="#4F2D1A" texto="Senha" />
 
                             <EntradaSenha texto="Senha" />
@@ -48,19 +52,18 @@ export default function Cadastro() {
                             <TextoEtiqueta  cor="#8FA31E" texto="Mínimo 8 caracteres" />
                         </View>
 
-                        <View style={styles.inputBox}>
+                        <View style={styles.caixaEntrada}>
                             <TextoEtiqueta cor="#4F2D1A" texto="Confirmar senha" />
 
                             <EntradaSenha texto="Confirmar senha" />
                         </View>
                     </View>
-                    <View style={styles.buttonContainer}>
+                    <View style={styles.caixaBotao}>
                     <Botao
                         texto="Criar"
                         caminho="/confirmacao"
                         tipo="button"
                     />
-                </View>
                 </View>
             </ScrollView>
         </TamaguiProvider>
@@ -72,7 +75,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#EFF5D2",
         padding: 32,
-        alignItems: "flex-start",
         width: "100%",
     },
 
@@ -81,13 +83,13 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
 
-    buttonContainer: {
+    caixaBotao: {
         marginTop: 24,
         marginBottom: 12, 
         width: "100%",
     },
 
-    inputBox: {
+    caixaEntrada: {
         width: "100%",
         marginTop: 10,
     },

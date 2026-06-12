@@ -1,20 +1,30 @@
-import { defaultConfig } from "@tamagui/config/v5";
 import { Image, KeyboardAvoidingView, Platform, ScrollView, StyleSheet } from "react-native";
+
+/*import { useProductDatabase } from './database/useAgricultorDatabase'*/
+import {useState} from 'react'
+
 import { createTamagui, TamaguiProvider, View } from "tamagui";
+import { defaultConfig } from "@tamagui/config/v5";
 
 import { Botao, BotaoTexto } from "../components/botoes";
 import { EntradaSenha, EntradaTexto } from "../components/caixasDeTexto";
 import { Titulo, Texto } from "@/components/textos";
 
 const config = createTamagui(defaultConfig);
+/*const database = useProductDatabase();*/
 
-/*
-    secureTextEntry -> exibe bolinhas na senha
-    keyboardType -> define o tipo do teclado
-*/
+/* secureTextEntry -> exibe bolinhas na senha 
+   keyboardType -> define o tipo do teclado */
 
 export default function TelaInicial() {
+
+    const [id, setId] = useState('');
+    const [name, setName] = useState(''); 
+    const [email, setEmail] = useState(''); 
+    const [senha, setSenha] = useState(''); // Estado para armazenar a senha.
+
     return (
+        
         <TamaguiProvider
             config={config}
             defaultTheme={undefined}
@@ -30,12 +40,12 @@ export default function TelaInicial() {
                     contentContainerStyle={{ flexGrow: 1 }}
                     keyboardShouldPersistTaps="handled"
                     showsVerticalScrollIndicator={false}
+                    style={styles.pagina}
                 >
-                    <View style={styles.container}>
-                        <View style={styles.header}>
+                        <View style={styles.cabecalho}>
                             <Image
                                 source={require("../assets/logo.png")}
-                                style={styles.illustrationLogo}
+                                style={styles.imagemLogo}
                             />
 
                             <View style={{ marginTop: 20 }}>
@@ -46,17 +56,17 @@ export default function TelaInicial() {
                             </View>
                         </View>
 
-                        <View style={styles.form}>
+                        <View style={styles.formulario}>
                             <Texto
                                 cor="#4F2D1A"
                                 texto="Acesse sua conta com E-mail e Senha"
                             />
 
-                            <View style={styles.inputBox}>
+                            <View style={styles.caixaEntrada}>
                                 <EntradaTexto texto="E-mail" />
                             </View>
 
-                            <View style={styles.inputBox}>
+                            <View style={styles.caixaEntrada}>
                                 <EntradaSenha texto="Senha" />
 
                                 <BotaoTexto
@@ -67,7 +77,7 @@ export default function TelaInicial() {
                             </View>
                         </View>
 
-                        <View style={styles.buttonContainer}>
+                        <View style={styles.caixaBotao}>
                             <Botao
                                 texto="Entrar"
                                 caminho="/cadastro"
@@ -80,7 +90,6 @@ export default function TelaInicial() {
                                 texto="Não tem uma conta? Cadastre-se"
                                 tipo="button"
                             />
-                    </View>
                 </ScrollView>
             </KeyboardAvoidingView>
         </TamaguiProvider>
@@ -88,34 +97,33 @@ export default function TelaInicial() {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    pagina: {
         height: "100%",
         backgroundColor: "#EFF5D2",
         padding: 32,
     },
 
-    header: {
-        alignItems: "center",
+    cabecalho: {
         backgroundColor: "#EFF5D2",
         padding: 0,
     },
 
-    form: {
+    formulario: {
         marginTop: "15%",
         gap: 12,
     },
 
-    inputBox: {
+    caixaEntrada: {
         width: "100%",
         marginTop: 10,
     },
 
-    buttonContainer: {
+    caixaBotao: {
         marginTop: 24,
         marginBottom: 12,   
     },
 
-    illustrationLogo: {
+    imagemLogo: {
         width: "100%",
         height: 200,
         resizeMode: "contain",

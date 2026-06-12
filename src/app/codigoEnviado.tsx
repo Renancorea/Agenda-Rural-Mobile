@@ -18,12 +18,17 @@ export default function EsEnvioCodigo() {
                 contentContainerStyle={{ flexGrow: 1 }}
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}
+                style={styles.pagina}
             >
-                <View style={styles.body}>
+                   <View
+                    alignItems="flex-start"
+                >
+
                     <BotaoImagem
+                        caminho="/telaInicial"
                         imagem={require("../assets/return.png")}
-                        caminho="/esqueceuSenha"
                     />
+                </View>
 
                     <Titulo
                         cor="#8FA31E"
@@ -40,18 +45,16 @@ export default function EsEnvioCodigo() {
                         texto="Reenviar em 1:20"
                         posicao="center"
                     />
-                </View>
             </ScrollView>
         </TamaguiProvider>
     );
 }
 
 const styles = StyleSheet.create({
-    body: {
+    pagina: {
         flex: 1,
         backgroundColor: "#EFF5D2",
         padding: 32,
-        alignItems: "flex-start",
         width: "100%",
     },
 });
