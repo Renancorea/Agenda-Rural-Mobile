@@ -1,114 +1,132 @@
-import { TextInput, StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native"
-import { Botao, BotaoTexto } from "../components/botoes"
-import { createTamagui, TamaguiProvider, View } from 'tamagui'
-import { defaultConfig } from '@tamagui/config/v5' // for quick config install this
+import { Image, KeyboardAvoidingView, Platform, ScrollView, StyleSheet } from "react-native";
 
-const config = createTamagui(defaultConfig)
+/*import { useProductDatabase } from './database/useAgricultorDatabase'*/
+import {useState} from 'react'
 
-/*não ser visivel a senha (editable={false}) 
-  a bolinha na senha (secureTextEntry)
-  (keyboardType="") seria o tipo de teclado*/
+import { createTamagui, TamaguiProvider, View } from "tamagui";
+import { defaultConfig } from "@tamagui/config/v5";
 
-export default function telaInicial() {
+import { Botao, BotaoTexto } from "../components/botoes";
+import { EntradaSenha, EntradaTexto } from "../components/caixasDeTexto";
+import { Titulo, Texto } from "@/components/textos";
+
+const config = createTamagui(defaultConfig);
+/*const database = useProductDatabase();*/
+
+/* secureTextEntry -> exibe bolinhas na senha 
+   keyboardType -> define o tipo do teclado */
+
+export default function TelaInicial() {
+
+    const [id, setId] = useState('');
+    const [name, setName] = useState(''); 
+    const [email, setEmail] = useState(''); 
+    const [senha, setSenha] = useState(''); // Estado para armazenar a senha.
+
     return (
- <TamaguiProvider config={config} defaultTheme={undefined}>
+        
+        <TamaguiProvider
+            config={config}
+            defaultTheme={undefined}
+        >
+            <KeyboardAvoidingView
+                style={{ flex: 1 }}
+                behavior={Platform.select({
+                    ios: "padding",
+                    android: "height",
+                })}
+            >
+                <ScrollView
+                    contentContainerStyle={{ flexGrow: 1 }}
+                    keyboardShouldPersistTaps="handled"
+                    showsVerticalScrollIndicator={false}
+                    style={styles.pagina}
+                >
+                        <View style={styles.cabecalho}>
+                            <Image
+                                source={require("../assets/logo.png")}
+                                style={styles.imagemLogo}
+                            />
 
-        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.select({ ios: "padding", android: "height" })}>
-            <ScrollView /*Para rolar a tela*/
-                contentContainerStyle={{ flexGrow: 1 }}
-                keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
+                            <View style={{ marginTop: 20 }}>
+                                <Titulo
+                                    cor="#4F2D1A"
+                                    texto="Bem vindo ao Agenda Rural"
+                                />
+                            </View>
+                        </View>
 
-                <View style={styles.container}>
+                        <View style={styles.formulario}>
+                            <Texto
+                                cor="#4F2D1A"
+                                texto="Acesse sua conta com E-mail e Senha"
+                            />
 
-                    <View style={styles.header}>
-                        <Image source={require("../assets/logo.png")} style={styles.illustration_logo} />
-                        <Text style={styles.title}>Bem vindo ao Agenda Rural</Text>
-                    </View>
+                            <View style={styles.caixaEntrada}>
+                                <EntradaTexto texto="E-mail" />
+                            </View>
 
-                    <View style={styles.form}>
-                        <Text style={styles.subtitle}>Acesse sua conta com E-mail e Senha</Text>
+                            <View style={styles.caixaEntrada}>
+                                <EntradaSenha texto="Senha" />
 
-                                    <View style={styles.inputBox}>                                        
-                                        <TextInput placeholder="E-mail" style={styles.input}></TextInput>
-                                    </View>
-                                    
-                                    <View style={styles.inputBox}>
-                                        <TextInput placeholder="Senha" style={styles.input}></TextInput>
-                                        <BotaoTexto caminho="/esqueceuSenha" texto="Esqueceu a senha?" />
-                                    </View>
-                    </View> 
+                                <BotaoTexto
+                                    caminho="/esqueceuSenha"
+                                    texto="Esqueceu a senha?"
+                                    tipo="button"
+                                />
+                            </View>
+                        </View>
 
+                        <View style={styles.caixaBotao}>
+                            <Botao
+                                texto="Entrar"
+                                caminho="/cadastro"
+                                tipo="submit"
+                            />
 
-                    <View style={styles.buttonContainer}>
-                        <Botao texto="Entrar" caminho="/cadastro" />
-                         <BotaoTexto caminho="/cadastro" texto="Não tem uma conta? Cadastre-se" />
-                    </View>
+                        </View>
+                            <BotaoTexto
+                                caminho="/cadastro"
+                                texto="Não tem uma conta? Cadastre-se"
+                                tipo="button"
+                            />
+                </ScrollView>
+            </KeyboardAvoidingView>
+        </TamaguiProvider>
+    );
+}
 
-                </View>
-            </ScrollView>
-        </KeyboardAvoidingView>
-                    </TamaguiProvider>
-    )
-};
 const styles = StyleSheet.create({
-
-    container: {
+    pagina: {
         height: "100%",
-        backgroundColor: '#EFF5D2',
+        backgroundColor: "#EFF5D2",
         padding: 32,
     },
 
-    header: {
-        textAlign: "center",
-        alignItems: "center",
-        backgroundColor: '#EFF5D2',
+    cabecalho: {
+        backgroundColor: "#EFF5D2",
         padding: 0,
     },
 
-    input: {
-        height: 45,
-        borderColor: '#000000',
-        borderWidth: 1,
-        marginBottom: 12,
-        borderRadius: 4,
-        fontSize: 20,
-        paddingHorizontal: 8,
-    },
-
-    buttonContainer: {
-        marginTop: 24,
-    },
-      inputBox:{
-        width:"100%",
-        marginTop: 10,
-    },
-
-    illustration_logo: {
-        width: "100%",
-        height: 200,
-        resizeMode: "contain", 
-        marginTop: "10%",
-    },
-
-    title: {
-        textAlign: "center",
-        height: 100,
-        width: "80%",
-        fontSize: 38,
-        fontWeight: 900,
-        color: '#4F2D1A'
-    },
-
-    subtitle: {
-        width: "100%",
-        fontSize: 16,
-        textAlign: "center",
-    },
-
-    form: {
+    formulario: {
         marginTop: "15%",
         gap: 12,
     },
 
+    caixaEntrada: {
+        width: "100%",
+        marginTop: 10,
+    },
+
+    caixaBotao: {
+        marginTop: 24,
+        marginBottom: 12,   
+    },
+
+    imagemLogo: {
+        width: "100%",
+        height: 200,
+        resizeMode: "contain",
+        marginTop: "10%",
+    },
 });

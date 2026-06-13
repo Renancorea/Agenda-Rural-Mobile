@@ -1,6 +1,6 @@
-import { Slot} from 'expo-router'; // usado para redecionar para as telas "filhas".
+/*import { Slot} from 'expo-router'; // usado para redecionar para as telas "filhas".
 import { SQLiteDatabase, SQLiteProvider } from 'expo-sqlite'; // importa os componentes necessarios.
-import { initializeDatabase } from './database/database'; // importa a função de inicialização do banco de dados.
+import { initializeDatabase } from '../database/InitializeDatabase'; // importa a função de inicialização do banco de dados.
 
 export default function Layout() { // componente de layout que envolve as telas do aplicativo e da acesso ao banco de dados.
     return(
@@ -10,3 +10,4 @@ export default function Layout() { // componente de layout que envolve as telas 
       
     );
 }
+*/  

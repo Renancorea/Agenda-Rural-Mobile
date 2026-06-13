@@ -1,81 +1,69 @@
-import { StyleSheet, Image, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
-import { createTamagui, TamaguiProvider, View } from 'tamagui'
-import { defaultConfig } from '@tamagui/config/v5'
-import { BotaoImagem, Botao } from "../components/botoes"
+import { StyleSheet, ScrollView } from "react-native";
 
-const config = createTamagui(defaultConfig)
+import {
+    createTamagui,
+    TamaguiProvider,
+    View,
+} from "tamagui";
+import { defaultConfig } from "@tamagui/config/v5";
 
-export default function confirmacao(){
-    return(
-        <TamaguiProvider config={config} defaultTheme={undefined}>
-<ScrollView /*Para rolar a tela*/
+import { BotaoImagem, Botao } from "../components/botoes";
+import { EntradaCodigo } from "../components/caixasDeTexto";
+import { Titulo, Texto } from "@/components/textos";
+
+const config = createTamagui(defaultConfig);
+
+export default function Confirmacao() {
+    return (
+        <TamaguiProvider
+            config={config}
+            defaultTheme={undefined}
+        >
+            <ScrollView
                 contentContainerStyle={{ flexGrow: 1 }}
                 keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
+                showsVerticalScrollIndicator={false}
+                style={styles.pagina}
+            >
+                
+                    <View
+                    alignItems="flex-start"
+                >
 
-        <View style={styles.body}>
+                    <BotaoImagem
+                        caminho="/telaInicial"
+                        imagem={require("../assets/return.png")}
+                    />
+                </View>
 
-            <BotaoImagem imagem={require("../assets/return.png")} caminho="/cadastro" />
+                    <Titulo
+                        cor="#8FA31E"
+                        texto="Confirmação!"
+                    />
 
-            <Text style={styles.title}>Confirmação!</Text>
-            <Text style={styles.text}>Para confirmarmos a criação da sua conta enviamos o código de verificação para o e-mail que você cadastrou, insira-o abaixo:</Text>
+                    <Texto
+                        cor="#4F2D1A"
+                        texto="Para confirmarmos a criação da sua conta enviamos o código de verificação para o e-mail que você cadastrou, insira-o abaixo:"
+                    />
 
-            <View style={styles.inputBox}>
-                <View><TextInput style={styles.input}></TextInput></View>
-                <View><TextInput style={styles.input}></TextInput></View>
-                <View><TextInput style={styles.input}></TextInput></View>
-                <View><TextInput style={styles.input}></TextInput></View>
-            </View>
-                   
-            <Botao texto="Criar" caminho="/confirmacao" />
-              
-        </View>
-                </ScrollView>
+                    <EntradaCodigo />
+
+                    <Botao
+                        texto="Criar"
+                        caminho="/confirmacao"
+                        tipo="button"
+                    />
+                
+            </ScrollView>
         </TamaguiProvider>
-
-    )
+    );
 }
 
 const styles = StyleSheet.create({
-    body: {
+    pagina: {
         flex: 1,
         backgroundColor: "#EFF5D2",
-        padding: 32, 
-        alignItems: "flex-start",
-        width:"100%"
-    },
-
-    title:{
-        textAlign:"center",
-        width:"100%",
-        marginTop: 15,
-        fontSize: 42,
-        fontWeight: "bold",
-        color: "#8FA31E",  
-    },
-
-     text:{
+        padding: 32,
         width: "100%",
-        fontSize: 19,
-        textAlign: "center",
-        marginTop: 15,
     },
-
-    inputBox:{
-        marginTop: 30,
-        justifyContent: "center",       
-        flexDirection: "row",
-        gap: 10,
-    },
-
-     input:{
-        borderWidth: 1,
-        borderRadius: 5,
-        width: 70,
-        height: 70
-    },
-
-})
-    
-        
-       
+});

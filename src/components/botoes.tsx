@@ -2,6 +2,7 @@ import { Button, Text } from "tamagui";
 import { router } from "expo-router";
 import { Image } from "react-native"
 
+
 type Rotas =
     | "/cadastro"
     | "/confirmacao"
@@ -9,12 +10,18 @@ type Rotas =
     | "/telaInicial"
     | "/codigoEnviado";
 
+type Tipos =
+    | "submit"
+    | "button"
+    | "reset";
+
 type Props = {
     texto: string;
     caminho: Rotas;
+    tipo: Tipos;
 }
 
-export function Botao({ texto, caminho }: Props) {
+export function Botao({ texto, caminho, tipo }: Props) {
     return (
 
         <Button
@@ -29,6 +36,7 @@ export function Botao({ texto, caminho }: Props) {
             margin='auto'
             fontWeight="bold"
             bottom={5}
+            type={tipo}
             pressStyle={{
                 scale: 0.98,
                 backgroundColor: '#768618'
@@ -39,11 +47,12 @@ export function Botao({ texto, caminho }: Props) {
 
     )
 }
-export function BotaoCartao({ texto }: { texto: string }) {
+export function BotaoCartao({ texto, tipo }: { texto: string; tipo: Tipos }) {
 
     return (
 
         <Button
+            type={tipo}
             backgroundColor="#EFF5D2"
             height={50}
             borderRadius={10}
@@ -75,7 +84,7 @@ export function BotaoTexto({ texto, caminho }: Props) {
             onPress={() => router.push(caminho)}
             cursor="pointer"
             pressStyle={{
-                scale: 1.02,
+                scale: 0.98,
                 color: '#768618'
             }}
         >{texto}</Text>
@@ -89,10 +98,31 @@ export function BotaoImagem({ imagem, caminho }: { imagem: any; caminho: Rotas }
             backgroundColor="transparent"
             borderWidth={0}
             pressStyle={{
-                scale: 1.02,
+                scale: 0.98,
                 backgroundColor: "transparent"
             }}
             onPress={() => router.push(caminho)}
+        >
+            <Image
+                source={imagem}
+                style={{
+                    width: 25,
+                    height: 25,
+                }}
+            />
+        </Button>
+    )
+}
+export function BotaoImagemFuncao({ imagem, onPress }: { imagem: any; onPress: () => void }) {
+
+    return (
+        <Button
+            backgroundColor="transparent"
+            borderWidth={0}
+            pressStyle={{
+                backgroundColor: "transparent"
+            }}
+            onPress={onPress}
         >
             <Image
                 source={imagem}

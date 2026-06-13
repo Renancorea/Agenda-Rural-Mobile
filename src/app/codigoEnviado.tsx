@@ -1,65 +1,60 @@
-import { StyleSheet, Text, ScrollView, KeyboardAvoidingView, Platform, TextInput } from "react-native" 
+import { StyleSheet, ScrollView } from "react-native";
 
-import { createTamagui, TamaguiProvider, View } from 'tamagui'
-import { defaultConfig } from '@tamagui/config/v5' // for quick config install this
-import { BotaoImagem } from "../components/botoes"
+import { createTamagui,TamaguiProvider,View } from "tamagui";
+import { defaultConfig } from "@tamagui/config/v5";
 
-const config = createTamagui(defaultConfig)
+import { BotaoImagem } from "../components/botoes";
+import { Titulo, Texto, TextoFuncao } from "@/components/textos";
 
-export default function ES_envioCodigo(){
-    return(
-        <TamaguiProvider config={config} defaultTheme={undefined}>
-<ScrollView /*Para rolar a tela*/
+const config = createTamagui(defaultConfig);
+
+export default function EsEnvioCodigo() {
+    return (
+        <TamaguiProvider
+            config={config}
+            defaultTheme={undefined}
+        >
+            <ScrollView
                 contentContainerStyle={{ flexGrow: 1 }}
                 keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false} /*tirar a barra de rolagem*/ >
+                showsVerticalScrollIndicator={false}
+                style={styles.pagina}
+            >
+                   <View
+                    alignItems="flex-start"
+                >
 
-        <View style={styles.body}>
-                
-            <BotaoImagem imagem={require("../assets/return.png")} caminho="/esqueceuSenha" />
-                
-            <Text style={styles.title}>Senha enviada</Text>
-            <Text style={styles.text}>Sua senha foi enviada para seu e-mail, por favor verifique-o</Text>
-            <Text style={styles.forgotpass}>Reenviar em 1:20</Text>
-        
-        </View>
-                </ScrollView>
+                    <BotaoImagem
+                        caminho="/telaInicial"
+                        imagem={require("../assets/return.png")}
+                    />
+                </View>
+
+                    <Titulo
+                        cor="#8FA31E"
+                        texto="Senha enviada"
+                    />
+
+                    <Texto
+                        cor="#4F2D1A"
+                        texto="Sua senha foi enviada para seu e-mail, por favor verifique-o"
+                    />
+
+                    <TextoFuncao
+                        cor="#8FA31E"
+                        texto="Reenviar em 1:20"
+                        posicao="center"
+                    />
+            </ScrollView>
         </TamaguiProvider>
-    )
+    );
 }
 
-const styles= StyleSheet.create({
-    body:{
+const styles = StyleSheet.create({
+    pagina: {
         flex: 1,
         backgroundColor: "#EFF5D2",
-        padding: 32, 
-        alignItems: "flex-start",
-        width:"100%"
-    },
-
-    title:{
-        textAlign:"center",
-        width:"100%",
-        marginTop: 15,
-        fontSize: 42,
-        fontWeight: "bold",
-        color: "#8FA31E",  
-    },
-
-    text:{
+        padding: 32,
         width: "100%",
-        fontSize: 19,
-        textAlign: "center",
-        marginTop: 15,
     },
-
-    forgotpass: {
-        width: "100%",
-        textAlign: "center",
-        marginTop: 10,
-        marginBottom: 10,
-        fontSize:15,
-        color:'#8FA31E',
-    },
-
-})
+});
