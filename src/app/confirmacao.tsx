@@ -51,7 +51,7 @@ export default function Confirmacao() {
                     <Botao
                         texto="Criar"
                         caminho="/confirmacao"
-                        tipo="button"
+                        
                     />
                 
             </ScrollView>

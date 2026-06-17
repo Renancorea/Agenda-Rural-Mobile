@@ -4,7 +4,7 @@ import { defaultConfig } from "@tamagui/config/v5";
 
 import { Botao, BotaoImagem } from "../components/botoes";
 import { EntradaTexto } from "../components/caixasDeTexto";
-import { Titulo, Texto } from "@/components/textos";
+import { Titulo, Texto } from "../components/textos";
 
 const config = createTamagui(defaultConfig);
 
@@ -47,7 +47,7 @@ export default function EsqueceuSenha() {
                     <Botao
                         caminho="/codigoEnviado"
                         texto="Seguir"
-                        tipo="submit"
+                        
                     />
             </ScrollView>
         </TamaguiProvider>

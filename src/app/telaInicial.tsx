@@ -1,8 +1,4 @@
 import { Image, KeyboardAvoidingView, Platform, ScrollView, StyleSheet } from "react-native";
-
-/*import { useProductDatabase } from './database/useAgricultorDatabase'*/
-import {useState} from 'react'
-
 import { createTamagui, TamaguiProvider, View } from "tamagui";
 import { defaultConfig } from "@tamagui/config/v5";
 
@@ -17,11 +13,6 @@ const config = createTamagui(defaultConfig);
    keyboardType -> define o tipo do teclado */
 
 export default function TelaInicial() {
-
-    const [id, setId] = useState('');
-    const [name, setName] = useState(''); 
-    const [email, setEmail] = useState(''); 
-    const [senha, setSenha] = useState(''); // Estado para armazenar a senha.
 
     return (
         
@@ -72,7 +63,7 @@ export default function TelaInicial() {
                                 <BotaoTexto
                                     caminho="/esqueceuSenha"
                                     texto="Esqueceu a senha?"
-                                    tipo="button"
+                                    
                                 />
                             </View>
                         </View>
@@ -80,15 +71,15 @@ export default function TelaInicial() {
                         <View style={styles.caixaBotao}>
                             <Botao
                                 texto="Entrar"
-                                caminho="/cadastro"
-                                tipo="submit"
+                                caminho="/telaPrincipal"
+                                
                             />
 
                         </View>
                             <BotaoTexto
                                 caminho="/cadastro"
                                 texto="Não tem uma conta? Cadastre-se"
-                                tipo="button"
+                                
                             />
                 </ScrollView>
             </KeyboardAvoidingView>

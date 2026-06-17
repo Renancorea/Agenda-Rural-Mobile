@@ -44,6 +44,7 @@ export default function EsEnvioCodigo() {
                         cor="#8FA31E"
                         texto="Reenviar em 1:20"
                         posicao="center"
+                        tamanho={16}
                     />
             </ScrollView>
         </TamaguiProvider>

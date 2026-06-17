@@ -1,14 +1,15 @@
-import { Button, Text } from "tamagui";
 import { router } from "expo-router";
-import { Image } from "react-native"
-
+import { Image } from "react-native";
+import { Button, Text } from "tamagui";
+import { useState } from "react";
 
 type Rotas =
     | "/cadastro"
     | "/confirmacao"
     | "/esqueceuSenha"
     | "/telaInicial"
-    | "/codigoEnviado";
+    | "/codigoEnviado"
+    | "/telaPrincipal"
 
 type Tipos =
     | "submit"
@@ -18,10 +19,9 @@ type Tipos =
 type Props = {
     texto: string;
     caminho: Rotas;
-    tipo: Tipos;
 }
 
-export function Botao({ texto, caminho, tipo }: Props) {
+export function Botao({ texto, caminho }: Props) {
     return (
 
         <Button
@@ -36,7 +36,6 @@ export function Botao({ texto, caminho, tipo }: Props) {
             margin='auto'
             fontWeight="bold"
             bottom={5}
-            type={tipo}
             pressStyle={{
                 scale: 0.98,
                 backgroundColor: '#768618'
@@ -47,12 +46,11 @@ export function Botao({ texto, caminho, tipo }: Props) {
 
     )
 }
-export function BotaoCartao({ texto, tipo }: { texto: string; tipo: Tipos }) {
+export function BotaoCartao({ texto }: { texto: string }) {
 
     return (
 
         <Button
-            type={tipo}
             backgroundColor="#EFF5D2"
             height={50}
             borderRadius={10}
@@ -104,6 +102,7 @@ export function BotaoImagem({ imagem, caminho }: { imagem: any; caminho: Rotas }
             onPress={() => router.push(caminho)}
         >
             <Image
+            resizeMode="contain"
                 source={imagem}
                 style={{
                     width: 25,
@@ -125,6 +124,7 @@ export function BotaoImagemFuncao({ imagem, onPress }: { imagem: any; onPress: (
             onPress={onPress}
         >
             <Image
+                resizeMode="contain"
                 source={imagem}
                 style={{
                     width: 25,
@@ -133,4 +133,38 @@ export function BotaoImagemFuncao({ imagem, onPress }: { imagem: any; onPress: (
             />
         </Button>
     )
+}
+
+
+export function BotaoMenu({
+  imagem,
+  imagemSele
+}: {
+  imagem: any
+  imagemSele: any
+}) {
+
+  const [selecionado, setSelecionado] = useState(false);
+
+  return (
+    <Button
+      backgroundColor="transparent"
+      borderWidth={0}
+
+      pressStyle={{
+        backgroundColor: "transparent"
+      }}
+
+      onPress={() => setSelecionado(!selecionado)}
+    >
+      <Image
+        source={selecionado ? imagemSele : imagem}
+        resizeMode="contain"
+        style={{
+          width: 40,
+          height: 40
+        }}
+      />
+    </Button>
+  );
 }

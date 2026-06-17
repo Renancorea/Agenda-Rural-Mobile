@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { StyleSheet } from "react-native";
-import { Input, XStack } from "tamagui";
+
+import React, { useState } from "react";
+import { StyleSheet, Text,Image } from "react-native";
+import { Checkbox, Input, XStack } from "tamagui";
 import { BotaoImagemFuncao } from "./botoes";
 
 type Props = {
@@ -23,7 +24,7 @@ export function EntradaSenha({ texto }: Props) {
                 flex={1}
                 borderWidth={0}
                 placeholder={texto}
-                type={seguro ? "password" : "text"}
+                secureTextEntry={seguro}
                 backgroundColor="transparent"
                 color="#4F2D1A"
                 height={45}
@@ -32,7 +33,7 @@ export function EntradaSenha({ texto }: Props) {
                 fontSize={20}
                 focusStyle={{
                     borderColor: "#4F2D1A",
-                    outlineColor: "transparent",
+                    outlineStyle: "transparent",
                 }}
             />
 
@@ -66,7 +67,7 @@ export function EntradaTexto({ texto }: Props) {
             color="#4F2D1A"
             focusStyle={{
                 borderColor: "#4F2D1A",
-                outlineColor: "transparent",
+                outlineStyle: "transparent",
             }}>
         </Input>
     )
@@ -78,7 +79,6 @@ export function EntradaCodigo() {
 
         <XStack
             justifyContent="center"
-
             backgroundColor="transparent"
         >
 
@@ -111,6 +111,36 @@ export function EntradaCodigo() {
     )
 }
 
+export function Entratadamarcar({ texto }: Props) {
+    return (
+        <XStack alignItems="center">
+            <Checkbox
+                backgroundColor="transparent"
+                width={18}
+                height={18}
+                borderWidth={2}
+                borderRadius={2}
+                borderColor="#57601F"
+                marginTop={4}
+                focusStyle={{
+                    width: 18,
+                    height: 18,
+                    borderWidth: 2,
+                    borderColor: "#57601F",
+                    outlineStyle:"transparent"
+                }}
+            >
+                <Checkbox.Indicator>
+                    <Image source={require("../assets/marcado.png")}></Image>
+                </Checkbox.Indicator>
+            </Checkbox>
+            <Text style={{ marginTop: 4,color: "#57601F", marginLeft: 5,  fontSize:18}}>{texto}</Text>
+        </XStack>
+
+        
+    )
+}
+
 const styles = StyleSheet.create({
     estilo: {
         height: 65,
@@ -125,7 +155,7 @@ const styles = StyleSheet.create({
         color: "#4F2D1A",
         margin: 8,
         marginTop: 20,
-        
+
     },
     estiloFocus: {
         borderColor: "#4F2D1A",
