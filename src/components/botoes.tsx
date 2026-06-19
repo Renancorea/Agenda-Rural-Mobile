@@ -10,6 +10,8 @@ type Rotas =
     | "/telaInicial"
     | "/codigoEnviado"
     | "/telaPrincipal"
+    | "/clima"
+    | "/notas"
 
 type Tipos =
     | "submit"
@@ -112,7 +114,31 @@ export function BotaoImagem({ imagem, caminho }: { imagem: any; caminho: Rotas }
         </Button>
     )
 }
-export function BotaoImagemFuncao({ imagem, onPress }: { imagem: any; onPress: () => void }) {
+export function BotaoImagemVari({ imagem, caminho }: { imagem: any; caminho: Rotas }) {
+
+    return (
+        <Button
+            backgroundColor="transparent"
+            borderWidth={0}
+            pressStyle={{
+                scale: 0.98,
+                backgroundColor: "transparent"
+            }}
+            onPress={() => router.push(caminho)}
+        >
+            <Image
+            resizeMode="contain"
+                source={imagem}
+                style={{
+                    width: 40,
+                    height: 40,
+                }}
+            />
+        </Button>
+    )
+}
+
+export function BotaoImagemFuncao({ imagem, onPress, tamanho }: { imagem: any; onPress: () => void; tamanho :number}) {
 
     return (
         <Button
@@ -127,44 +153,10 @@ export function BotaoImagemFuncao({ imagem, onPress }: { imagem: any; onPress: (
                 resizeMode="contain"
                 source={imagem}
                 style={{
-                    width: 25,
-                    height: 25,
+                    width: tamanho,
+                    height: tamanho,
                 }}
             />
         </Button>
     )
-}
-
-
-export function BotaoMenu({
-  imagem,
-  imagemSele
-}: {
-  imagem: any
-  imagemSele: any
-}) {
-
-  const [selecionado, setSelecionado] = useState(false);
-
-  return (
-    <Button
-      backgroundColor="transparent"
-      borderWidth={0}
-
-      pressStyle={{
-        backgroundColor: "transparent"
-      }}
-
-      onPress={() => setSelecionado(!selecionado)}
-    >
-      <Image
-        source={selecionado ? imagemSele : imagem}
-        resizeMode="contain"
-        style={{
-          width: 40,
-          height: 40
-        }}
-      />
-    </Button>
-  );
 }

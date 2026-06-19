@@ -7,7 +7,7 @@ import { createTamagui, TamaguiProvider, View, XStack, YStack } from "tamagui";
 
 import { Entratadamarcar } from "@/components/caixasDeTexto";
 import { Texto, TextoFuncao } from "@/components/textos";
-import { BotaoImagem, BotaoImagemFuncao } from "../components/botoes";
+import { BotaoImagem, BotaoImagemFuncao,BotaoImagemVari } from "../components/botoes";
 
 const config = createTamagui(defaultConfig);
 
@@ -24,14 +24,18 @@ export default function TelaPrincipal() {
                 style={styles.pagina}
             >
                 <View
+                
                 alignItems="center"
                 paddingHorizontal={36}
                 >
 
-                <View marginVertical={10}
-                    alignItems="flex-start"
+                <View 
+                    marginVertical={10}
+                    alignItems="flex-start" 
+                    width="100%"
                 >
                     <BotaoImagemFuncao
+                        tamanho={25}
                         imagem={require("../assets/menu.png")}
                         onPress={() => console.log("vou bota a funcao")}
                     />
@@ -43,49 +47,47 @@ export default function TelaPrincipal() {
                     alignItems="center"
                 >
                     <View
-
-                        justifyContent="flex-start"
+                    height={130}
                     >
                         <TextoFuncao
                             cor="#C6D870"
                             texto="5:55"
                             posicao="center"
-                            tamanho={70}
+                            tamanho={50}
                         />
-                        <View marginTop={10} marginBottom={-10}
-                        >
                             <TextoFuncao
                                 cor="#C6D870"
                                 texto="02/07 sex"
                                 posicao="center"
                                 tamanho={40}
                             />
-                        </View>
+                        
                     </View>
 
                     <View
+                        height={130}
                         flex={1}
-                        justifyContent="flex-start"
+                        justifyContent="center"
                     >
                         <TextoFuncao
                             cor="#C6D870"
                             texto="31"
                             posicao="center"
-                            tamanho={96}
+                            tamanho={80}
                         />
 
                         <XStack
-                            alignSelf="center"
-                            marginTop={20}
-                            marginBottom={-20}
-                            gap={10}
+                            paddingHorizontal="20%"
+                            paddingVertical={10}
+                            paddingBottom="20%"
                             alignItems="center"
                         >
-                            <Image source={require("../assets/sol.png")} />
-
-                            <Texto
+                            <Image source={require("../assets/sol.png")}/>
+                            <TextoFuncao
                                 cor="#C6D870"
                                 texto="cedro"
+                                posicao=""
+                                tamanho={16}
                             />
                         </XStack>
                     </View>
@@ -138,8 +140,8 @@ export default function TelaPrincipal() {
                 </View>
 
                     </View>
-                <XStack  alignItems="center" justifyContent="space-evenly" marginTop="auto"  backgroundColor="#C6D870" width="100%" height={70}>
-                        <BotaoImagem
+                <XStack  alignItems="center" justifyContent="space-evenly" marginTop="auto"  backgroundColor="#C6D870" width="100%" height={80} paddingBottom={10}>
+                        <BotaoImagemVari
                         caminho="/telaPrincipal"
                         imagem={require("../assets/iconesBarra/principalSele.png")}
                         />
@@ -148,11 +150,11 @@ export default function TelaPrincipal() {
                         imagem={require("../assets/iconesBarra/calendario.png")}
                         />
                         <BotaoImagem
-                        caminho="/telaPrincipal"
+                        caminho="/notas"
                         imagem={require("../assets/iconesBarra/notas.png")}
                         />
                         <BotaoImagem
-                        caminho="/telaPrincipal"
+                        caminho="/clima"
                         imagem={require("../assets/iconesBarra/clima.png")}
                         />
                 </XStack>

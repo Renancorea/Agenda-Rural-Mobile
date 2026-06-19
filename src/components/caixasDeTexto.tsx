@@ -33,11 +33,11 @@ export function EntradaSenha({ texto }: Props) {
                 fontSize={20}
                 focusStyle={{
                     borderColor: "#4F2D1A",
-                    outlineStyle: "transparent",
                 }}
             />
 
             <BotaoImagemFuncao
+                tamanho={25}
                 imagem={
                     seguro
                         ? require("../assets/olhoFechado.png")
@@ -67,7 +67,6 @@ export function EntradaTexto({ texto }: Props) {
             color="#4F2D1A"
             focusStyle={{
                 borderColor: "#4F2D1A",
-                outlineStyle: "transparent",
             }}>
         </Input>
     )
@@ -127,7 +126,6 @@ export function Entratadamarcar({ texto }: Props) {
                     height: 18,
                     borderWidth: 2,
                     borderColor: "#57601F",
-                    outlineStyle:"transparent"
                 }}
             >
                 <Checkbox.Indicator>
@@ -159,6 +157,5 @@ const styles = StyleSheet.create({
     },
     estiloFocus: {
         borderColor: "#4F2D1A",
-        outlineColor: "transparent",
     }
 });

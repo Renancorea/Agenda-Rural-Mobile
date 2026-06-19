@@ -16,7 +16,7 @@ export function Titulo({ texto, cor }: Props){
         fontSize= {42}
         fontWeight="900"
         color={cor}
-        lineHeight= "100%"
+        lineHeight= {42}
         >
             {texto}
         </Text>
@@ -49,12 +49,13 @@ export function TextoEtiqueta({ texto, cor }: Props){
         </Text>
     )
 }
-export function TextoFuncao({ texto, cor, posicao, tamanho }: Props & { posicao: "center" | "left" | "right"; tamanho: number }){
+export function TextoFuncao({ texto, cor, posicao, tamanho }: Props & { posicao: "center" | "left" | "right" | any; tamanho: number }){
      return(
         <Text
         textAlign= {posicao}
         width= "100%"
-        margin={10}
+        margin={3}
+        height={tamanho+5}
         fontSize= {tamanho}
         fontWeight= "bold"
         color= {cor}
