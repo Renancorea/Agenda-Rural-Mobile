@@ -68,6 +68,7 @@ export default function TelaPrincipal() {
         <XStack
             position="absolute"
             bottom={0}
+            paddingBottom={10}
             width="100%"
             height={80}
             backgroundColor="#C6D870"
@@ -80,7 +81,7 @@ export default function TelaPrincipal() {
             />
 
             <BotaoImagem
-                caminho="/telaPrincipal"
+                caminho="/calendario"
                 imagem={require("../assets/iconesBarra/calendario.png")}
             />
 

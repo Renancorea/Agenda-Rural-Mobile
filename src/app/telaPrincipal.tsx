@@ -5,7 +5,7 @@ import { Image, ScrollView, StyleSheet } from "react-native";
 import { defaultConfig } from "@tamagui/config/v5";
 import { createTamagui, TamaguiProvider, View, XStack, YStack } from "tamagui";
 
-import { Entratadamarcar } from "@/components/caixasDeTexto";
+import { EntratadaMarcar } from "@/components/caixasDeTexto";
 import { Texto, TextoFuncao } from "@/components/textos";
 import { BotaoImagem, BotaoImagemFuncao,BotaoImagemVari } from "../components/botoes";
 
@@ -107,15 +107,15 @@ export default function TelaPrincipal() {
 
                         <View
                             margin="auto" borderTopWidth={1} borderColor="#57601F" width="90%" height={30}>
-                            <Entratadamarcar texto="aiai"></Entratadamarcar>
+                            <EntratadaMarcar texto="aiai"></EntratadaMarcar>
                         </View>
                         <View
                             margin="auto" borderTopWidth={1} borderColor="#57601F" width="90%" height={30}>
-                            <Entratadamarcar texto="uiuiui"></Entratadamarcar>
+                            <EntratadaMarcar texto="uiuiui"></EntratadaMarcar>
                         </View>
                         <View
                             margin="auto" borderTopWidth={1} borderColor="#57601F" width="90%" height={30}>
-                            <Entratadamarcar texto="mamaeaaiaia"></Entratadamarcar>
+                            <EntratadaMarcar texto="mamaeaaiaia"></EntratadaMarcar>
                         </View>
                         <View
                             margin="auto" borderTopWidth={1} borderColor="#57601F" width="90%" height={30}>
@@ -146,7 +146,7 @@ export default function TelaPrincipal() {
                         imagem={require("../assets/iconesBarra/principalSele.png")}
                         />
                         <BotaoImagem
-                        caminho="/telaPrincipal"
+                        caminho="/calendario"
                         imagem={require("../assets/iconesBarra/calendario.png")}
                         />
                         <BotaoImagem

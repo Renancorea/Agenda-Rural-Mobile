@@ -1,7 +1,6 @@
 import { router } from "expo-router";
 import { Image } from "react-native";
 import { Button, Text } from "tamagui";
-import { useState } from "react";
 
 type Rotas =
     | "/cadastro"
@@ -12,11 +11,7 @@ type Rotas =
     | "/telaPrincipal"
     | "/clima"
     | "/notas"
-
-type Tipos =
-    | "submit"
-    | "button"
-    | "reset";
+    | "/calendario"
 
 type Props = {
     texto: string;

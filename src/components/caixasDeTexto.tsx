@@ -110,7 +110,7 @@ export function EntradaCodigo() {
     )
 }
 
-export function Entratadamarcar({ texto }: Props) {
+export function EntratadaMarcar({ texto }: Props) {
     return (
         <XStack alignItems="center">
             <Checkbox

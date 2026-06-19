@@ -53,7 +53,6 @@ export function TextoFuncao({ texto, cor, posicao, tamanho }: Props & { posicao:
      return(
         <Text
         textAlign= {posicao}
-        width= "100%"
         margin={3}
         height={tamanho+5}
         fontSize= {tamanho}

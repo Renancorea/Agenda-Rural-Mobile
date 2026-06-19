@@ -1,1 +1,0 @@
-import { XStack, YStack } from 'tamagui'

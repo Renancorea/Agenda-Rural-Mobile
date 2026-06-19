@@ -1,4 +1,4 @@
-/*import { useSQLiteContext } from "expo-sqlite";
+import { useSQLiteContext } from "expo-sqlite";
 
 export type UserDatabase = {
     id: number;
@@ -11,8 +11,8 @@ export function useAgricultorDatabase(){
 
     const database = useSQLiteContext();
 
-    // CRIAR
-    async function create(data: Omit<UserDatabase,"id">){
+    // criar conta
+    async function CriarConta(data: Omit<UserDatabase,"id">){
 
         const statement =
         await database.prepareAsync(
@@ -29,50 +29,93 @@ export function useAgricultorDatabase(){
 
             return {
                 insertedRowId:
-                result.lastInsertRowId 
-
-            }; 
-        } 
+                result.lastInsertRowId
+            };
+        }
 
         finally{
             await statement.finalizeAsync();
-        }}
+        }
+    }
 
-    // ATUALIZAR
-    async function update(data: UserDatabase){
+    // login
+    async function Entrar(email: string, senha: string){
+
+        const statement =
+        await database.prepareAsync(
+            `SELECT * FROM agricultores WHERE email = $email`
+        );
+
+        try{
+
+            const user =
+            await statement.executeAsync({
+                $email: email
+            });
+
+            const response =
+            (await user.getFirstAsync()) as UserDatabase; 
+
+            // email não existe
+            if(!response){
+                return {
+                    success: false,
+                    message: "Email não encontrado"
+                };
+            }
+            // senha errada
+            if (response?.senha !== senha) {
+                return {
+                    success: false,
+                    message: "Senha incorreta"
+                };
+            }
+
+            // cadastro certo
+            return {
+                success: true,
+                user: response
+            };
+            
+        }
+        finally{
+            await statement.finalizeAsync();
+        }
+    }
+
+    // atualizar
+    async function Atualizar(data: UserDatabase){
+
         const statement =
         await database.prepareAsync(
             `UPDATE agricultores SET nome = $nome, email = $email, senha = $senha WHERE id = $id`
-    );
+        );
+
         try{
+
             await statement.executeAsync({
                 $id: data.id,
                 $nome: data.nome,
                 $email: data.email,
                 $senha: data.senha
             });
-        } 
+
+        }
 
         finally{
             await statement.finalizeAsync();
-        } }
+        }
+    }
 
-    // EXCLUIR
-    async function remove(id:number){
+    // excluir
+    async function Excluir(id:number){
+
         await database.execAsync(
             `DELETE FROM agricultores WHERE id = ${id}`
-    );
-    }
-
-    // LISTAR
-    async function list(){
-        const response =
-        await database.getAllAsync<UserDatabase>(
-            `SELECT * FROM agricultores`
         );
-        return response;
+
     }
 
-    return { create, update, remove, list };
+    return { CriarConta, Entrar, Atualizar, Excluir };
 
-}*/
+}
