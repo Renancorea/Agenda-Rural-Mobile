@@ -58,6 +58,7 @@ export function TextoFuncao({ texto, cor, posicao, tamanho }: Props & { posicao:
         fontSize= {tamanho}
         fontWeight= "bold"
         color= {cor}
+        
         >
             {texto}
         </Text>

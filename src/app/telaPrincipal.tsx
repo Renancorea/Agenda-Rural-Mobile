@@ -5,8 +5,8 @@ import { Image, ScrollView, StyleSheet } from "react-native";
 import { defaultConfig } from "@tamagui/config/v5";
 import { createTamagui, TamaguiProvider, View, XStack, YStack } from "tamagui";
 
-import { EntratadaMarcar } from "@/components/caixasDeTexto";
-import { Texto, TextoFuncao } from "@/components/textos";
+import { EntratadaMarcar } from "../components/caixasDeTexto";
+import { Texto, TextoFuncao } from "../components/textos";
 import { BotaoImagem, BotaoImagemFuncao,BotaoImagemVari } from "../components/botoes";
 
 const config = createTamagui(defaultConfig);
@@ -143,19 +143,19 @@ export default function TelaPrincipal() {
                 <XStack  alignItems="center" justifyContent="space-evenly" marginTop="auto"  backgroundColor="#C6D870" width="100%" height={80} paddingBottom={10}>
                         <BotaoImagemVari
                         caminho="/telaPrincipal"
-                        imagem={require("../assets/iconesBarra/principalSele.png")}
+                        imagem={require("../assets/lowBarIcons/principalSele.png")}
                         />
                         <BotaoImagem
                         caminho="/calendario"
-                        imagem={require("../assets/iconesBarra/calendario.png")}
+                        imagem={require("../assets/lowBarIcons/calendario.png")}
                         />
                         <BotaoImagem
                         caminho="/notas"
-                        imagem={require("../assets/iconesBarra/notas.png")}
+                        imagem={require("../assets/lowBarIcons/notas.png")}
                         />
                         <BotaoImagem
                         caminho="/clima"
-                        imagem={require("../assets/iconesBarra/clima.png")}
+                        imagem={require("../assets/lowBarIcons/clima.png")}
                         />
                 </XStack>
 

@@ -3,10 +3,11 @@ import { Calendar, DateData, LocaleConfig } from 'react-native-calendars';
 import { Feather } from "@expo/vector-icons";
 import { ptBR } from "../app/utils/tradutorCalendario";
 
-import {StyleSheet, Text, ScrollView} from "react-native";
-import { BotaoImagem, BotaoImagemVari } from '@/components/botoes';
+import {StyleSheet, ScrollView} from "react-native";
+import { BotaoImagem, BotaoImagemVari, BotaoImagemFuncao } from '../components/botoes';
 import { defaultConfig } from "@tamagui/config/v5";
 import {createTamagui, TamaguiProvider,View, XStack} from "tamagui";
+import { CartaoEvento} from '../components/cartoesSobrepostos';
 
 const config = createTamagui(defaultConfig);
 
@@ -22,13 +23,14 @@ export default function Calendario() {
             config={config}
             defaultTheme={undefined}
         >
-
             <ScrollView
                 contentContainerStyle={{ flexGrow: 1 }}
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}
                 style={styles.pagina}
             >
+        <View flex={1} backgroundColor="#EFF5D2">
+
 
                 <View style={styles.container}>
 
@@ -44,10 +46,13 @@ export default function Calendario() {
                         )}
 
                         theme={{
+                            textDayHeaderFontWeight:'bold',
+                            textDayFontWeight:'bold',
                             textDisabledColor: '#4F2D1A',
                             textSectionTitleColor: '#4F2D1A',
                             textMonthFontSize: 18,
                             monthTextColor: "#4F2D1A",
+                            textMonthFontWeight:'bold',
                             todayBackgroundColor: "#3e181493",
                             todayTextColor: '#EFF5D2',
                             selectedDayTextColor: '#EFF5D2',
@@ -55,7 +60,8 @@ export default function Calendario() {
                             arrowColor: '#4F2D1A',
                             calendarBackground: '#C6D870',
                             textDayStyle: {
-                                color: "#4F2D1A"
+                                color: "#4F2D1A",
+                                fontWeight:"bold"
                             }
                         }}
 
@@ -76,25 +82,69 @@ export default function Calendario() {
                         }
                     />
 
-                    <View style={styles.parteDeBaixo}>
-                        <View style={styles.caixaEvento}>
-                            <Text style={styles.textoEvento}>
-                                Feriado
-                            </Text>
+                    <View marginTop={20} gap={15}>
 
-                            <View style={styles.dataEvento}>
-                                <Text style={styles.semanaEvento}>
-                                    Sex
-                                </Text>
-
-                                <Text style={styles.diaEvento}>
-                                    19
-                                </Text>
-                            </View>
-                        </View>
+                        <CartaoEvento
+                        titulo="Titulo"
+                        dia="22"
+                        nomeDia="QUA"
+                         />
+                         <CartaoEvento
+                        titulo="Titulo"
+                        dia="22"
+                        nomeDia="QUA"
+                         />
+                         <CartaoEvento
+                        titulo="Titulo"
+                        dia="22"
+                        nomeDia="QUA"
+                         />
+                         <CartaoEvento
+                        titulo="Titulo"
+                        dia="22"
+                        nomeDia="QUA"
+                         />
+                         <CartaoEvento
+                        titulo="Titulo"
+                        dia="22"
+                        nomeDia="QUA"
+                         />
+                        <CartaoEvento
+                        titulo="Titulo"
+                        dia="22"
+                        nomeDia="QUA"
+                         />
+                         <CartaoEvento
+                        titulo="Titulo"
+                        dia="22"
+                        nomeDia="QUA"
+                         />
+                         <CartaoEvento
+                        titulo="Titulo"
+                        dia="22"
+                        nomeDia="QUA"
+                         />
+                         <CartaoEvento
+                        titulo="Titulo"
+                        dia="22"
+                        nomeDia="QUA"
+                         />
                     </View>
 
                 </View>
+
+                        <View
+                                    position="absolute"
+                                    bottom={100}
+                                    width="100%"
+                                    alignItems="flex-end"
+                                >
+                                    <BotaoImagemFuncao
+                                        tamanho={45}
+                                        imagem={require("../assets/comptsIcons/criar.png")}
+                                        onPress={() => console.log("vou bota a funcao")}
+                                    />
+                                </View>
                         <XStack
                                     position="absolute"
                                     bottom={0}
@@ -107,26 +157,27 @@ export default function Calendario() {
                                 >
                                     <BotaoImagem
                                         caminho="/telaPrincipal"
-                                        imagem={require("../assets/iconesBarra/principal.png")}
-                                    />
+                                        imagem={require("../assets/lowBarIcons/principal.png")}
+                                        />
                         
                                     <BotaoImagemVari
                                         caminho="/calendario"
-                                        imagem={require("../assets/iconesBarra/calendarioSele.png")}
+                                        imagem={require("../assets/lowBarIcons/calendarioSele.png")}
                                     />
                         
                                     <BotaoImagem
                                         caminho="/notas"
-                                        imagem={require("../assets/iconesBarra/notas.png")}
+                                        imagem={require("../assets/lowBarIcons/notas.png")}
                                     />
                         
                                     <BotaoImagem
                                         caminho="/clima"
-                                        imagem={require("../assets/iconesBarra/clima.png")}
+                                        imagem={require("../assets/lowBarIcons/clima.png")}
                                     />
                                 </XStack>
-            </ScrollView>
 
+</View>
+                                    </ScrollView>
         </TamaguiProvider>
     );
 }
@@ -135,17 +186,12 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#EFF5D2',
         padding: 24, 
-
+        marginBottom: 156,
     },
 
     calendar: {
         backgroundColor: '#C6D870',
         borderRadius: 5,
-    },
-
-    parteDeBaixo:{
-        marginTop: 20,
-        gap: 15,
     },
 
     caixaEvento:{

@@ -43,7 +43,8 @@ export function Botao({ texto, caminho }: Props) {
 
     )
 }
-export function BotaoCartao({ texto }: { texto: string }) {
+
+export function BotaoCartao({ texto, onPress }: { texto: Props; onPress:()=> void }) {
 
     return (
 
@@ -63,7 +64,7 @@ export function BotaoCartao({ texto }: { texto: string }) {
                 scale: 0.98,
                 backgroundColor: '#5f3721'
             }}
-        // onPress={() => function()}
+         onPress={onPress}
         >{texto}</Button>
 
     )
@@ -142,6 +143,7 @@ export function BotaoImagemFuncao({ imagem, onPress, tamanho }: { imagem: any; o
             pressStyle={{
                 backgroundColor: "transparent"
             }}
+            margin={0}
             onPress={onPress}
         >
             <Image

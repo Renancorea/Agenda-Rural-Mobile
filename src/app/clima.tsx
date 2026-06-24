@@ -4,7 +4,7 @@ import { Image, ScrollView, StyleSheet } from "react-native";
 
 import { defaultConfig } from "@tamagui/config/v5";
 import { createTamagui, TamaguiProvider, View, XStack, YStack } from "tamagui";
-import { Texto, TextoFuncao } from "@/components/textos";
+import { Texto, TextoFuncao } from "../components/textos";
 import { BotaoImagem,BotaoImagemVari } from "../components/botoes";
 
 const config = createTamagui(defaultConfig);
@@ -162,19 +162,19 @@ export default function TelaPrincipal() {
                   <XStack  alignItems="center" justifyContent="space-evenly" marginTop="auto"  backgroundColor="#C6D870" width="100%" height={80} paddingBottom={10}>
                         <BotaoImagem
                         caminho="/telaPrincipal"
-                        imagem={require("../assets/iconesBarra/principal.png")}
+                        imagem={require("../assets/lowBarIcons/principal.png")}
                         />
                         <BotaoImagem
                         caminho="/calendario"
-                        imagem={require("../assets/iconesBarra/calendario.png")}
+                        imagem={require("../assets/lowBarIcons/calendario.png")}
                         />
                         <BotaoImagem
                         caminho="/notas"
-                        imagem={require("../assets/iconesBarra/notas.png")}
+                        imagem={require("../assets/lowBarIcons/notas.png")}
                         />
                         <BotaoImagemVari
                         caminho="/clima"
-                        imagem={require("../assets/iconesBarra/climaSele.png")}
+                        imagem={require("../assets/lowBarIcons/climaSele.png")}
                         />
                 </XStack>
             </ScrollView>

@@ -9,7 +9,7 @@ import { useState } from "react";
 
 import { EntradaTexto,EntradaSenha } from "../components/caixasDeTexto";
 import { Botao, BotaoImagem } from "../components/botoes";
-import { Titulo, TextoEtiqueta } from "@/components/textos";
+import { Titulo, TextoEtiqueta } from "../components/textos";
 
 const config = createTamagui(defaultConfig);
 

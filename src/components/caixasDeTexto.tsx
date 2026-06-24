@@ -40,8 +40,8 @@ export function EntradaSenha({ texto }: Props) {
                 tamanho={25}
                 imagem={
                     seguro
-                        ? require("../assets/olhoFechado.png")
-                        : require("../assets/olhoAberto.png")
+                        ? require("../assets/comptsIcons/olhoFechado.png")
+                        : require("../assets/comptsIcons/olhoAberto.png")
                 }
                 onPress={() => setSeguro(!seguro)}
             ></BotaoImagemFuncao>
@@ -129,7 +129,7 @@ export function EntratadaMarcar({ texto }: Props) {
                 }}
             >
                 <Checkbox.Indicator>
-                    <Image source={require("../assets/marcado.png")}></Image>
+                    <Image source={require("../assets/comptsIcons/marcado.png")}></Image>
                 </Checkbox.Indicator>
             </Checkbox>
             <Text style={{ marginTop: 4,color: "#57601F", marginLeft: 5,  fontSize:18}}>{texto}</Text>

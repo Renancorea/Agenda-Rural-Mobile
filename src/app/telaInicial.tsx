@@ -4,7 +4,7 @@ import { defaultConfig } from "@tamagui/config/v5";
 
 import { Botao, BotaoTexto } from "../components/botoes";
 import { EntradaSenha, EntradaTexto } from "../components/caixasDeTexto";
-import { Titulo, Texto } from "@/components/textos";
+import { Titulo, Texto } from "../components/textos";
 
 const config = createTamagui(defaultConfig);
 /*const database = useProductDatabase();*/

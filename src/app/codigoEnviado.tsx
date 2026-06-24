@@ -4,7 +4,7 @@ import { createTamagui,TamaguiProvider,View } from "tamagui";
 import { defaultConfig } from "@tamagui/config/v5";
 
 import { BotaoImagem } from "../components/botoes";
-import { Titulo, Texto, TextoFuncao } from "@/components/textos";
+import { Titulo, Texto, TextoFuncao } from "../components/textos";
 
 const config = createTamagui(defaultConfig);
 

@@ -9,7 +9,7 @@ import { defaultConfig } from "@tamagui/config/v5";
 
 import { BotaoImagem, Botao } from "../components/botoes";
 import { EntradaCodigo } from "../components/caixasDeTexto";
-import { Titulo, Texto } from "@/components/textos";
+import { Titulo, Texto } from "../components/textos";
 
 const config = createTamagui(defaultConfig);
 

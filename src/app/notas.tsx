@@ -4,8 +4,9 @@ import { Image, ScrollView, StyleSheet } from "react-native";
 
 import { defaultConfig } from "@tamagui/config/v5";
 import { createTamagui, TamaguiProvider, View, XStack, YStack, Text } from "tamagui";
-import { Texto, TextoFuncao } from "@/components/textos";
+import { Texto, TextoFuncao } from "../components/textos";
 import { BotaoImagem, BotaoImagemFuncao,BotaoImagemVari } from "../components/botoes";
+import { CartaoNota } from "../components/cartoesSobrepostos";
 
 const config = createTamagui(defaultConfig);
 
@@ -15,10 +16,6 @@ export default function TelaPrincipal() {
     config={config}
     defaultTheme={undefined}
 >
-    <View
-        flex={1}
-        backgroundColor="#EFF5D2"
-    >
 
         <ScrollView
             contentContainerStyle={{
@@ -27,31 +24,55 @@ export default function TelaPrincipal() {
             }}
             showsVerticalScrollIndicator={false}
         >
-
             <View
-                width={150}
-                alignSelf="center"
+                flex={1}
+                backgroundColor="#EFF5D2"
             >
-                <Text
-                    color="#4f2d1a"
-                    textAlign="center"
-                    fontSize={18}
-                >
-                    Você não possui nenhuma nota
-                </Text>
+            <YStack gap={15}  alignItems="center" marginTop={50}  marginBottom={180}>
 
-                <Text
-                    fontSize={18}
-                    marginTop={20}
-                    color="#4f2d1a"
-                    textAlign="center"
-                >
-                    aperte no ícone de + para criar
-                </Text>
-            </View>
-
-        </ScrollView>
-
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+            <CartaoNota
+            data="02/07/2008"
+            titulo="anaversarioooo"
+            />
+           
+            </YStack>
+            
         <View
             position="absolute"
             bottom={100}
@@ -60,7 +81,7 @@ export default function TelaPrincipal() {
         >
             <BotaoImagemFuncao
                 tamanho={45}
-                imagem={require("../assets/criar.png")}
+                imagem={require("../assets/comptsIcons/criar.png")}
                 onPress={() => console.log("vou bota a funcao")}
             />
         </View>
@@ -74,28 +95,30 @@ export default function TelaPrincipal() {
             backgroundColor="#C6D870"
             alignItems="center"
             justifyContent="space-evenly"
-        >
+            >
             <BotaoImagem
                 caminho="/telaPrincipal"
-                imagem={require("../assets/iconesBarra/principal.png")}
-            />
+                imagem={require("../assets/lowBarIcons/principal.png")}
+                />
 
             <BotaoImagem
                 caminho="/calendario"
-                imagem={require("../assets/iconesBarra/calendario.png")}
-            />
+                imagem={require("../assets/lowBarIcons/calendario.png")}
+                />
 
             <BotaoImagemVari
                 caminho="/notas"
-                imagem={require("../assets/iconesBarra/notasSele.png")}
-            />
+                imagem={require("../assets/lowBarIcons/notasSele.png")}
+                />
 
             <BotaoImagem
                 caminho="/clima"
-                imagem={require("../assets/iconesBarra/clima.png")}
-            />
+                imagem={require("../assets/lowBarIcons/clima.png")}
+                />
         </XStack>
+                
+                        </View>
+                        </ScrollView>
 
-    </View>
 </TamaguiProvider>
     )};
